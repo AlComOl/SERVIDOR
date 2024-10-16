@@ -9,7 +9,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form action="guardar.php" method="post">
+    <form action="guardar.php" method="POST">
     <br>
         <div>
          <label for="quantity">TECLADO</label>

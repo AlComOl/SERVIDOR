@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start();//hay que ponerlo siempre
 ?>
 
 <h2>ya estamos en el final</h2>
