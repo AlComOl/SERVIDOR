@@ -4,6 +4,8 @@ session_start();
 
         echo "<h3>Los campos están vacíos</h3>";
     }
+
+
     ?> 
 
 <form action="./Autentificar.php" method="POST">
@@ -17,6 +19,8 @@ session_start();
     <input type="password" name="password">
 
     <button type="submit" name="entrar">ENVIAR</button>
+    <br>
+    <input type="checkbox" name="valor">Recordar
 
     <!-- <button type="submit" name="salir">LOGOUT</button> -->
 </div>

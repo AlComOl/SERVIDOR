@@ -23,37 +23,25 @@ if (isset($_POST["entrar"])) { //si se manda el formulario
 
                 $comprobado = true; //para salir del bucle 
                 $nombre = $usuarios[$i]["nombre"]; //guardaria el nombre
+                // if ($comprobado) {//no hace falta la condicion sino , no hubiera entrado en el if anterior
+                    $_SESSION["nombre"] = $usuarios[$i]["usuario"];
+                    $_SESSION["password"] = $usuarios[$i]["password"];
+                    $_SESSION["rol"] = $usuarios[$i]["rol"];
+                    $_SESSION["recordar"] = $_POST["valor"];
+                // }
+
+                header("Location: ./Menu.php");
+
 
 
             }
-
-
             $i++; //la i tiene que estar detras para que ciente el primero
 
+            
 
-            //
-
-            if ($comprobado) {
-                $_SESSION["nombre"] = $_usuarios[$i][""];
-                $_SESSION["password"] = $_usuarios[""];
-                $_SESSION["rool"] = $_usuarios[""];
-            }
+            
         }
     }
 
-    if(isset($_SESSION["rool"])) {
-        //aqui redireccionare a menu para segun el tipo de usuario que soy 
 }
-// if(isset($_POST["username"])|| empty($_POST["username"])){
 
-//     if(isset($_POST["password"])|| empty($_POST["password"])){
-//         $_SESSION['caduca']=time()+30;
-        
-
-//     }
-
-
-// }else{
-//     header("Location: ./Login.php");
-//     echo"VACIO";
-// }
