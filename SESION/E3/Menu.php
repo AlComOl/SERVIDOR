@@ -29,6 +29,7 @@ ob_start();
 
         echo"<p>".$_SESSION["nombre"]."</p>";
 
+
        
        
 
@@ -42,8 +43,3 @@ ob_start();
         
 </body>
 </html>
-
-
-
-
-

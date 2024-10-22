@@ -1,14 +1,31 @@
 <?php
 session_start();
 
-$_SESSION['id_tel']=$_POST['tel'];
-$_SESSION['id_pan']=$_POST['pan'];
-$_SESSION['id_rat']=$_POST['rat'];
-$_SESSION['id_cpu']=$_POST['cpu'];
+if (isset($_SESSION['productos'])){//Si existe el array productos en la var de session introduce los valores dentro del array
+    $productos['producto']=$_POST['producto'];
+    $productos['precio']=$_POST['precio'];
+    $productos['cantidad']=$_POST['cantidad'];
+
+
+//aqui introcuce los valores del array en la variable de session
+    $_SESSION['productos'][]=$productos;
 
 
 
-foreach($_SESSION as $key => $value){
-    echo $_SESSION[$key] = $value;
+}else{//en caso contrario crea el array y lo introcuce dentro de la variable session 
+    $_SESSION['productos']=[];//crea el array vacio
+//añade al array los valores
+    $productos['producto']=$_POST['producto'];
+    $productos['precio']=$_POST['precio'];
+    $productos['cantidad']=$_POST['cantidad'];
+//añade a la sesion el primer producto
+    $_SESSION['productos'][]=$productos;
 
 }
+
+
+foreach ($_SESSION['productos'] as $key => $value) {
+    echo "$key => Producto: {$value['producto']}, Precio: {$value['precio']}, Cantidad: {$value['cantidad']}<br>";
+}
+
+?>

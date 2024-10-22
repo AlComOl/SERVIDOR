@@ -34,6 +34,10 @@ if (isset($_POST["entrar"])) { //si se manda el formulario
 
 
 
+          
+
+            }else{
+                header("Location: ./Menu.php");
             }
             $i++; //la i tiene que estar detras para que ciente el primero
 
@@ -44,4 +48,3 @@ if (isset($_POST["entrar"])) { //si se manda el formulario
     }
 
 }
-
