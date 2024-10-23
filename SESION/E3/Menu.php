@@ -4,7 +4,7 @@ setcookie("valor", 1, time() + 30);
 }
 
 session_start();
-ob_start();
+ob_start();//permite que salga el mensaje de php sin warnings
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +24,14 @@ ob_start();
         if($_SESSION["rol"]=="ROLE_ALUMNO"){
             echo "<h2>MENU ALUMNO</h2>";
         }else{
-            echo "<h2>MEMU PROFESOR</h2>";
+            echo "<h2>MENU PROFESOR</h2>";
         }
+
 
         echo"<p>".$_SESSION["nombre"]."</p>";
 
 
-       
+        
        
 
 
