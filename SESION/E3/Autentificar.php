@@ -35,31 +35,33 @@ if (isset($_POST["entrar"])) { //si se manda el formulario
                 // if ($comprobado) {//no hace falta la condicion sino , no hubiera entrado en el if anterior
                     $_SESSION["nombre"] = $usuarios[$i]["usuario"];
                     $_SESSION["rol"] = $usuarios[$i]["rol"];
-                    // $user= $usuarios[$i]["usuario"];
+                   
                   
                 
             }
             $i++; //la i tiene que estar detras para que ciente el primero
 
 
-             // Crear cookies si se seleccionó el checkbox de recordar
+// Crear cookies si se seleccionó el checkbox de recordar
         if ($recordar) {
             // setcookie("usuario", $user, time() + (86400 * 30), "/"); // 30 días
-            setcookie("usuario", $user, time() + (10), "/");
+            setcookie("galleta", $_SESSION["nombre"], time() + (10), "/");
 
         } else {
             // Borrar las cookies si el usuario no quiere recordar
-            setcookie("usuario", "", time() - 3600, "/");
+            setcookie("galleta", $_SESSION["nombre"], time() - 3600, "/");
         }
             
 
             
         }
+
+//si encontrado es true crea guarda el tiempo en la variable de sesión y redirige a login 
         if($encontrado == true){
             
             $_SESSION["tiempo"] = time() + 5;
             header("location:./Menu.php");
-        
+//si no es asi pone la variable encontrado a false redirige a login y elimina la varible de sesion
         }else{
             $_SESSION["usuarioEncontrado"]=false;
             header("location:./Login.php");
