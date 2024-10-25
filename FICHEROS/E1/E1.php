@@ -12,13 +12,36 @@
 
 
  
- while(!feof($fichero)&&(!fclose($fichero))){
+ if ($fichero !== false) {
+   // Mientras no se llegue al final del archivo
+   while (!feof($fichero)) {//
+       // Leer una línea del archivo
+       $linea = fgets($fichero);
 
-    $dividido=explode(",", $fichero,3);;
-    
- }
+       // Dividir la línea en un array separando por comas
+       $datos = explode(",", $linea);
 
- echo()
+      // Procesar los campos de la línea
+      //  echo "<p> DNI: " . $datos[0] . " | Departamento: " . $datos[1] ." | Nota: " . $datos[2] . "</p>";
+
+     $array["dni"] =$datos[0];
+
+     $array["nota"] =$datos[1];
+
+   }
+
+
+   foreach ($array as $key => $value) {
+      echo"". $key ."=>". $value ."";
+   // Cerrar el archivo después de procesarlo
+   fclose($fichero);
+
+   }
+
+
+} else {
+   echo "No se pudo abrir el archivo.";
+}
 
 
 ?>
