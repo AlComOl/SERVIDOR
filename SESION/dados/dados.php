@@ -1,3 +1,10 @@
+<?php
+session_start();
+ $fallos=0;
+  $aciertos=0;
+$_SESSION["fallos"]=[];
+$_SESSION["aciertos"]=[];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +19,8 @@
     <img src="./dados/dado1.png"></img><img src="./dados/dado2.png"></img><img src="./dados/dado3.png"></img><img src="./dados/dado4.png"></img><img src="./dados/dado5.png"></img><img src="./dados/dado6.png"></img>
 
 <?php
+ 
 
-$fallos=0;
-$aciertos=0;
-$_SESSION["fallos"]=$fallos;
-$_SESSION["aciertos"]=$aciertos;
 
 if(!isset($_SESSION["dado"])){//si la var de sesion dado no se ha iniciado
 
@@ -27,8 +31,8 @@ if(!isset($_SESSION["dado"])){//si la var de sesion dado no se ha iniciado
 <div>
    <!-- vuelve a enviar los datos al archivo si apretamos algun boton -->
     <form action="dados.php" method="post">
-         <h3>ACIERTOS : <?= $aciertos ?></h3>
-         <h3>FALLOS: <?= $fallos ?></h3>
+         <h3>ACIERTOS : <?php echo $aciertos ?></h3>
+         <h3>FALLOS: <?php echo $fallos ?></h3>
         <button type="submit" name="tirar" value="">TIRAR</button> 
         <button type="submit" name="reiniciar">REINICIAR</button>
     </form>
@@ -40,21 +44,21 @@ if(!isset($_SESSION["dado"])){//si la var de sesion dado no se ha iniciado
 if(isset($_POST["tirar"])){//si tirar esta lleno(apretar boton tirar)
  $tirada=rand(1,6);//numero aleatorio
 //comprobar el numero de aciertos
-if(empty($_SESSION["dado"][$tirada])){
-
+if(empty($_SESSION["dado"][$tirada])){//si array dado en la pos $tirada esta vacio
+ 
  $_SESSION["dado"][$tirada]=$tirada;
 
-$_SESSION["aciertos"]++;
+$_SESSION["aciertos"][$tirada]++;
+$aciertos++;
 }else{
-$_SESSION["fallos"]++;
+$_SESSION["fallos"][$tirada]++;
+$fallos++;
 }
-$aciertos=$_SESSION["aciertos"];
-$fallos=$_SESSION["fallos"];
 
- foreach($_SESSION["dado"] as $key=>$value){
+// $aciertos=$_SESSION["aciertos"];
+// $fallos=$_SESSION["fallos"];
 
-   echo"$key"."=>"."$value";
- }
+ 
 
  switch ($tirada) {
     case '1':
@@ -94,6 +98,18 @@ $fallos=$_SESSION["fallos"];
         # code...
         break;
  }
+ ?>
+
+ <br>
+
+ <?php
+
+ foreach($_SESSION["dado"] as $key=>$value){
+
+   echo"$key"."=>"."$value"." ,";
+ }
+}if(isset($_POST['reiniciar'])){
+   $_SESSION["dado"]=[]; //la inicio vacia
 }
  ?>
  
