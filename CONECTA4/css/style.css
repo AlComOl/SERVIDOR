@@ -1,0 +1,28 @@
+table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(233, 224, 224);
+
+}
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+.botones>button{
+    background-color: cadetblue;
+    padding: 26px;
+}
+td{
+padding: 20px;
+}
+tr{
+padding: 20px;
+}
+button{
+padding: 25px;
+}
+
+
