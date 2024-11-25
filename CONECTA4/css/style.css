@@ -5,24 +5,41 @@ table{
     background-color:rgb(233, 224, 224);
 
 }
+  td{
+    height: 50px;
+    width: 50px;
+    border: black 2px solid;
+  }
+
+  tr{
+    height: 50px;
+    width: 50px;
+    border: black 2px solid;
+  }
+
+#iniciar{
+    padding: 20px;
+    color: red;
+    border: 3px solid black;
+    border-radius: 10px;
+    
+}
+
+#sesion{
+    padding: 20px;
+    color:blue;
+    border: 3px solid black;
+    border-radius: 10px;  
+}
+
 .botones{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-
-}
-.botones>button{
-    background-color: cadetblue;
-    padding: 26px;
-}
-td{
-padding: 20px;
-}
-tr{
-padding: 20px;
-}
-button{
-padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
+.botones button {
+  padding: 21px;
+  margin: 1px;
+ 
+}
