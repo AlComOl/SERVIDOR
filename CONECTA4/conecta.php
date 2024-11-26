@@ -1,15 +1,17 @@
 <?php
 session_start();
 
-// Incluye el archivo con las funciones de verificación
+// Incluye el archivo con las funciones de verificacion
 require_once 'verificar.php';
 
 $jugador1 = 1;
 $jugador2 = 2;
+$ganador=false;
+$gana="---";
 
 if (isset($_POST['borrar'])) {
     session_destroy();
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header("Location: conecta.php");
     exit;
 }
 
@@ -20,7 +22,7 @@ if (!isset($_SESSION["tabla"])) {
     }
 
     $_SESSION["turno"] = rand(1, 2);
-    echo "Empieza el Juego el Jugador " . $_SESSION["turno"];
+    // echo "Empieza el Juego el Jugador " . $_SESSION["turno"];
 }
 
 //PULSAR BOTON INTRODUCE FICHA
@@ -33,11 +35,11 @@ if (isset($_POST["boton"])) {
         if ($_SESSION["tabla"][$j][$columna] === 0) {
             if (isset($_SESSION["turno"])) {
                 if ($_SESSION["turno"] == 1) {
-                    echo " EL TURNO ES DEL JUGADOR 2 ";
+                    // echo " EL TURNO ES DEL JUGADOR 2 ";
                     $_SESSION["tabla"][$j][$columna] = $jugador1;
                     $_SESSION["turno"] = 2;
                 } else if ($_SESSION["turno"] == 2) {
-                    echo " EL TURNO ES DEL JUGADOR 1 ";
+                    // echo " EL TURNO ES DEL JUGADOR 1 ";
                     $_SESSION["tabla"][$j][$columna] = $jugador2;
                     $_SESSION["turno"] = 1;
                 }
@@ -45,9 +47,15 @@ if (isset($_POST["boton"])) {
                 $_SESSION["tabla"][$j][$columna] = $jugador1;
             }
 
-            if (verificacionVertical() || verificacionHorizontal() || verificacionDiagonalHorizontalD() || verificacionDiagonalInversa()) {
-                echo "<p>¡Jugador " . ($_SESSION["turno"] == 1 ? 2 : 1) . " gana!</p>";
-               
+            if (verificacionV() || verificacionH() || verificacionDHD() || verificacionDI()) {
+
+                if($_SESSION["turno"] == 1){
+                    $gana=$jugador1;
+                }else{
+                   $gana=$jugador2;
+                }
+                
+               $ganador=true;
             }
 
             $encontrado = true;
@@ -91,19 +99,25 @@ if (isset($_POST["boton"])) {
     </table>
 
     <div class="botones">
-        <button type="submit" name="boton" value="0" <?php if ($_SESSION['tabla'][5][0] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="1" <?php if ($_SESSION['tabla'][5][1] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="2" <?php if ($_SESSION['tabla'][5][2] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="3" <?php if ($_SESSION['tabla'][5][3] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="4" <?php if ($_SESSION['tabla'][5][4] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="5" <?php if ($_SESSION['tabla'][5][5] != 0) echo "disabled"; ?>> + </button>
-        <button type="submit" name="boton" value="6" <?php if ($_SESSION['tabla'][5][6] != 0) echo "disabled"; ?>> + </button>
+        <button type="submit" name="boton" value="0" id="b"<?php if ($_SESSION['tabla'][5][0] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="1" id="b"<?php if ($_SESSION['tabla'][5][1] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="2" id="b"<?php if ($_SESSION['tabla'][5][2] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="3" id="b"<?php if ($_SESSION['tabla'][5][3] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="4" id="b"<?php if ($_SESSION['tabla'][5][4] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="5" id="b"<?php if ($_SESSION['tabla'][5][5] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
+        <button type="submit" name="boton" value="6" id="b"<?php if ($_SESSION['tabla'][5][6] != 0 || $ganador) echo "disabled"; ?>>⬇️</button>
     </div>
 </form>
-
-<form action="" method='post'>
-    <button type="submit" name="borrar"id="sesion" value="borrar">Buton</button>
+<div id="Turno">
+<h1> JUGADOR GANADOR <?php echo" $gana" ?> </h1>
+<br>
+<h2>TURNO JUEGO <?php  print_r($_SESSION['turno']) ?></h2>
+</div>
+<div id="bajo">
+<form  action="" method='post'>
+    <button type="submit" name="borrar"id="sesion" value="borrar">Borar $_SESSION</button>
     <button type='submit' id='iniciar' name='borrar'>Empezar Juego</button>
 </form>
+</div>
 </body>
 </html>

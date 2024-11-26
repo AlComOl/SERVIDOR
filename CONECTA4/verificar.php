@@ -1,21 +1,21 @@
 <?php
-function verificacionVertical(){
+function verificacionV(){
     $ganar = false;
     for ($columna = 0; $columna < 7 && !$ganar; $columna++) {
-        $ganar = verificacionSegunJugador($columna, "vertical");
+        $ganar = verificacionSegunJugador($columna, "vertical");//pasamos la columna y la posicion 
     }
     return $ganar;
 }
 
-function verificacionHorizontal(){
+function verificacionH(){
     $ganar = false;
     for ($fila = 0; $fila < 6 && !$ganar; $fila++) {
-        $ganar = verificacionSegunJugador($fila, "horizontal");
+        $ganar = verificacionSegunJugador($fila, "horizontal");//la fila 
     }
     return $ganar;
 }
 
-function verificacionDiagonalHorizontalD() {
+function verificacionDHD() {
     $ganar = false;
     for ($fila = 0; $fila < 3; $fila++) {
         for ($columna = 0; $columna < 4; $columna++) {
@@ -30,7 +30,7 @@ function verificacionDiagonalHorizontalD() {
     return $ganar;
 }
 
-function verificacionDiagonalInversa() {
+function verificacionDI() {
     $ganar = false;
     for ($fila = 3; $fila < 6; $fila++) {
         for ($columna = 0; $columna < 4; $columna++) {
@@ -70,8 +70,8 @@ function verificacionSegunJugador($index, $direccion) {
                 $celda = 0;
             }
         } elseif ($direccion == "diagI") {
-            if (isset($_SESSION["tabla"][$i][5 - $i])) {
-                $celda = $_SESSION["tabla"][$i][5 - $i];
+            if (isset($_SESSION["tabla"][$i][4 - $i])) {
+                $celda = $_SESSION["tabla"][$i][4 - $i];
             } else {
                 $celda = 0;
             }
