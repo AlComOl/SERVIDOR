@@ -1,4 +1,7 @@
+<?php
+session_start();
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,73 +13,101 @@
    <form method="post">
 
 <?php
-if(isset($_SESSION['borrar'])){
-    session_destroy();
-    header("Location: e1.php");
-    exit;
+// $_SESSION['fallos']=0;
+// $_SESSION['aciertos']=0;
+
+
+if (!isset($_SESSION['fallos'])) {
+    $_SESSION['fallos'] = 0;
 }
 
-if(!isset($_SESSION["genera"])){
- for ($i=0; $i <= 3 ; $i++) { 
-    switch ($i) {
-        case '0':
-        $c="red";
-            break;
-        case '1':
-        $c="yellow";
-            break;
-        case '2':
-        $c="green";
-         break;
-        case '3':
-        $c="blue";
-        break;
-    
-    default:
-        # code...
-        break;
+if (!isset($_SESSION['aciertos'])) {
+    $_SESSION['aciertos'] = 0;
 }
 
-        echo '<button type="submit" name="boton" value="0" id="b" style="background-color:'.$c.';width:30px;height:30px;"></button>';
-        
-    }
-
-   if(isset($_POST["boton"])){
-
-    $botonPresionado=$_POST["boton"];
-
-   
-print_r($botonPresionado);
-
-
-
-    $color=rand(1,4);
-    switch ($color) {
-        case 1:
-            echo "<div style='background-color:red;width:30px;height:30px;'></div>";
-            $_SESSION["BotonAleatorio"]="red";
-        break;
-        case 2:
-            echo "<div style='background-color:blue;width:30px;height:30px;'></div>";
-            $_SESSION["BotonAleatorio"]="blue";
-            break;
-        case 3:
-            echo "<div style='background-color:green;width:30px;height:30px;'></div>";
-            $_SESSION["BotonAleatorio"]="green";
-            break;        
-        case 4:
-            echo "<div style='backgroundcolor:yellow;width:30px;height:30px;'></div>";
-            $_SESSION["BotonAleatorio"]="yellow";
-            break;
+//Random de un color
+ $color=rand(1,4);
+ switch ($color) {
+     case 1:
        
-        default:
-          
+         $_SESSION["ColorSelecionado"]="red";
+     break;
+     case 2:
+        
+         $_SESSION["ColorSelecionado"]="blue";
+         break;
+     case 3:
+        
+         $_SESSION["ColorSelecionado"]="green";
+         break;        
+     case 4:
+       
+         $_SESSION["ColorSelecionado"]="yellow";
+         break;
+    
+     default:
+       
+         break;
+     }
+
+
+//Pintar colores para selecionar
+    for ($i=0; $i <= 3 ; $i++) { 
+        switch ($i) {
+            case '0':
+            $c="red";
+                break;
+            case '1':
+            $c="yellow";
+                break;
+            case '2':
+            $c="green";
             break;
-        }
+            case '3':
+            $c="blue";
+            break;
+        
+        default:
+            # code...
+            break;
+     }
+ //pinta los colores
+        echo '<button type="submit" name="boton" value="0" id="b" style="background-color:'.$c.';width:30px;height:30px;"></button>';
 
     }
-    }
 
+//si apretamos el color generado que guardamos en Sesion aparece el color generado 
+        if(isset($_POST["boton"])){   
+            echo"<h1>COLOR ALEATORIO:</h1><br>";
+
+  echo "<div style='background-color:".$_SESSION['ColorSelecionado'].";width:30px;height:30px;'></div>";
+
+             
+             if($_SESSION['ColorSelecionado']===$c){
+
+                print_r($_SESSION['ColorSelecionado']);
+                print_r($c);
+             
+               $_SESSION['aciertos']++;
+               echo"acierto";
+             
+             }else{
+        
+                $_SESSION['fallos']++;
+            
+                echo"fallo";
+               
+             }
+
+          
+             echo"<h1>Aciertos:</h1><br>";
+             echo"<h1>" .$_SESSION['aciertos']."</h1>";
+
+             echo"<h1>Fallos:</h1><br>";
+             echo"<h1>" .$_SESSION['fallos']."</h1>";
+     }
+
+     echo"<button ></button>"
     ?>
     </form> 
     </body>

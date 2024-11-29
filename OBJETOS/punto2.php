@@ -7,13 +7,6 @@ public function listarTelefonos(): string → Muestra los teléfonos separados p
 public function vaciarTelefonos(): void → Elimina todos los teléfonos -->
 
 <?php
-// EmpleadoTelefonos.php: Copia la clase del ejercicio anterior y modifícala.
-// Añade una propiedad privada que almacene un array de números de teléfonos.
-// Añade los siguientes métodos:
-
-//     public function anyadirTelefono(int $telefono) : void → Añade un teléfono al array
-//     public function listarTelefonos(): string → Muestra los teléfonos separados por comas
-//     public function vaciarTelefonos(): void → Elimina todos los teléfonos
 
 
 
@@ -23,14 +16,13 @@ class Empleado{
     private string $nombre;
     private string $apellido;
     private float $sueldo;
-
     private array $telefono;
 
-    public function __construct(string $nombre,string $apellido, float $sueldo, array $telefono){
+    public function __construct(string $nombre,string $apellido, float $sueldo){
          $this ->nombre=$nombre;
          $this ->apellido=$apellido;
          $this ->sueldo=$sueldo;
-         $this->telefono=$telefono;
+         
     }
 
   
@@ -106,7 +98,17 @@ class Empleado{
     }
 
     public function anyadirTelefono(int $telefono) : void {
-        
+        $this -> telefono[]=$telefono;
+
+    }
+
+    public function listarTelefonos(){
+        // return implode(", ", $this->telefono);
+        $largo=count($this->telefono);
+        for ($i=0; $i < $largo  ; $i++) { 
+            echo $this->telefono[$i];
+        }
+       
     }
     
     
@@ -116,5 +118,9 @@ $Empleado = new Empleado("Alvaro","Comenge",33333);
 
 echo $Empleado->getNombreCompleto()."<br>";
 echo $Empleado->debePagarImpuestos(100000);
+$Empleado->anyadirTelefono("679232692");
+echo $Empleado->listarTelefonos();
+
+
 
 ?>
