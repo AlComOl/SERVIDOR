@@ -1,27 +1,35 @@
-<!-- EmpleadoTelefonos.php: Copia la clase del ejercicio anterior y modifícala.
-Añade una propiedad privada que almacene un array de números de teléfonos.
-Añade los siguientes métodos:
-
-public function anyadirTelefono(int $telefono) : void → Añade un teléfono al array
-public function listarTelefonos(): string → Muestra los teléfonos separados por comas
-public function vaciarTelefonos(): void → Elimina todos los teléfonos -->
-
 <?php
+
+
+// EmpleadoConstructor.php: Copia la clase del ejercicio anterior y modifícala. Elimina los setters de nombre y apellidos, 
+// de manera que dichos datos se asignan mediante el constructor (utiliza la sintaxis de PHP7). Si el constructor recibe 
+// un tercer parámetro, será el sueldo del Empleado. Si no, se le asignará 1000€ como sueldo inicial.
+
+// EmpleadoConstructor8.php: Modifica la clase y utiliza la sintaxis de PHP 8 de promoción de las propiedades del
+// constructor.
+
 
 
 
 class Empleado{
 
    
-    private string $nombre;
-    private string $apellido;
-    private float $sueldo;
-    private array $telefono;
+    // private string $nombre;
+    // private string $apellido;
+    // private float $sueldo;
+    // private array $telefono;
 
-    public function __construct(string $nombre,string $apellido, float $sueldo){
-         $this ->nombre=$nombre;
-         $this ->apellido=$apellido;
-         $this ->sueldo=$sueldo;
+    // public function __construct(string $nombre,string $apellido, float $sueldo=1000){
+        //  $this ->nombre=$nombre;
+        //  $this ->apellido=$apellido;
+        //  $this ->sueldo=$sueldo;
+        //php 8 
+        public function __construct(
+            public string $nombre,
+            public string $apellido,
+            public float $sueldo = 1000
+
+        ){}
          
     }
 
@@ -37,16 +45,7 @@ class Empleado{
 
     
 
-    /**
-     * Set the value of nombre
-     */
-    public function setNombre(string $nombre): self
-    {
-        $this->nombre = $nombre;
-
-        return $this;
-    }
-
+   
     /**
      * Get the value of apellido
      */
@@ -55,16 +54,7 @@ class Empleado{
         return $this->apellido;
     }
 
-    /**
-     * Set the value of apellido
-     */
-    public function setApellido(string $apellido): self
-    {
-        $this->apellido = $apellido;
-
-        return $this;
-    }
-
+   
     /**
      * Get the value of sueldo
      */
@@ -119,19 +109,15 @@ class Empleado{
     
 }
 
-$Empleado = new Empleado("Alvaro","Comenge",33333);
+$Empleado = new Empleado("Alvaro","Comenge",3000);
 
-echo $Empleado->getNombreCompleto()."<br>";
-echo $Empleado->debePagarImpuestos(100000);
-$Empleado->anyadirTelefono("679232692");
-echo $Empleado->listarTelefonos();
 
-echo $Empleado -> vaciarTelefonos();
-echo $Empleado->listarTelefonos();
 
+echo $Empleado ->getSueldo();
 
 
 
 
 
 ?>
+
