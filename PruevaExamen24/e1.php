@@ -13,8 +13,7 @@ session_start();
    <form method="post">
 
 <?php
-// $_SESSION['fallos']=0;
-// $_SESSION['aciertos']=0;
+
 
 
 if (!isset($_SESSION['fallos'])) {
