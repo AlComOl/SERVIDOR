@@ -116,11 +116,11 @@ if(isset($_POST["reset"])){
 
 <div style="margin:20px">
     <form method="post" action="">
-        <button type="submit" name="abajo" value="0" style="padding:20px  " > ⬇️ </button>
-        <button type="submit" name="arriba" value="0" style="padding:20px  ">⬆️</button>
-        <button type="submit" name="izquierda" value="2" style="padding:20px  ">⬅️</button>
-        <button type="submit" name="derecha" value="3" style="padding:20px  ">➡️ </button>
-        <button type="submit" name="reset" value="4" style="padding:20px  ">RESET</button>
+        <button type="submit" name="abajo" value="0" style="padding:30px;font-size: 50px; " > ⬇️ </button>
+        <button type="submit" name="arriba" value="0" style="padding:30px;font-size: 50px; ">⬆️</button>
+        <button type="submit" name="izquierda" value="2" style="padding:30px;font-size: 50px;  ">⬅️</button>
+        <button type="submit" name="derecha" value="3" style="padding:30px;font-size: 50px;  ">➡️ </button>
+        <button type="submit" name="reset" value="4" style="padding:30px;  ">RESET</button>
     </form>
 </div>    
 
