@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+session_start();
+$premio=0;
 if(!isset($_SESSION["combinacion"])){
    
     for ($i=0; $i < 5; $i++) { 
@@ -30,6 +31,8 @@ if(!isset($_SESSION["combinacion"])){
 
       if(isset($_POST["cancelar"])){
         session_destroy();
+        
+        $_SESSION["premios"][$premio];
        
     }
 }
@@ -72,6 +75,10 @@ if(!isset($_SESSION["combinacion"])){
             ?>
         </h2>
     </div>
+    <?php
+    
+    
+    ?>
     <div style="display:flex;justify-content:center;aling-items:center;">
         <h1 style="color:blue";>PREMIOS ACUMILADOS:</h1>
          <h2 style="color:red"><?php print_r($_SESSION["premios"][$premio]) ?> </h2>
