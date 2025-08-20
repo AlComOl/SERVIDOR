@@ -2,33 +2,41 @@
 session_start();
 $_SESSION["partida"]=0;
 $_myArray[][]=[[0,0],[0,0]];
+$left=0;
+$top=0;
+//aun falta que se pinten todos las pelotas
 
-if(isset($_SESSION["partida"])){
-    $left=rand(0,90);
-    $top=rand(0,90);
-    print_r($left);
-if(isset($_POST["AI"])){
-    $_myArray = [[1,0],[0,0]];
+if(!isset($_SESSION["pelotas"])){
+    $_SESSION["pelotas"] =["left"=>$left , "top"=>$top];
+}else{
+            if(isset($_POST["AI"])){
+                $_myArray = [[1,0],[0,0]];
+                  $left=rand(10,150);
+                  $top=rand(10,150);
+                  
+            
+                  array_push($_SESSION["pelotas"],["left"=>$left,"top"=>$top]);
+                  print_r($_SESSION["pelotas"]);
 
-    echo"<table>"; 
-        for ($i=0; $i < 2 ; $i++) {
-           
-                for ($s=0; $s < 2; $s++) { 
+                echo"<table>"; 
+                    for ($i=0; $i < 2 ; $i++) {
                     
-                    if(($_myArray[$i][$s])==1){ 
-                    echo"<div class='rojo'></div>";
-                    
-                    } 
-                    if(($_myArray[$i][$s])==0){
-                      
-                    }
-                   
-                } 
-                   
+                            for ($s=0; $s < 2; $s++) { 
+                                
+                                if(($_myArray[$i][$s])==1){ 
+                                echo"<div class='rojo'></div>";
+                                
+                                } 
+                                if(($_myArray[$i][$s])==0){
+                                
+                                }
+                            
+                            } 
+                            
+                        }
+                
+                echo "</table>";
             }
-      
-    echo "</table>";
-}
 
 if(isset($_POST["AD"])){
 
@@ -47,6 +55,8 @@ if(isset($_POST["reset"])){
     }
 
 }
+
+
 ?>
 
 <!DOCTYPE html>
