@@ -1,21 +1,21 @@
 <?php
 session_start();
-$_SESSION["partida"]=0;
 $_myArray[][]=[[0,0],[0,0]];
 $left=0;
 $top=0;
-//aun falta que se pinten todos las pelotas
+//aun falta que se pinten todos" las pelotas
 
 if(!isset($_SESSION["pelotas"])){
-    $_SESSION["pelotas"] =["left"=>$left , "top"=>$top];
+     $_SESSION["pelotas"] = []; 
 }else{
+
+  
+   
             if(isset($_POST["AI"])){
                 $_myArray = [[1,0],[0,0]];
-                  $left=rand(10,150);
-                  $top=rand(10,150);
                   
             
-                  array_push($_SESSION["pelotas"],["left"=>$left,"top"=>$top]);
+                  array_push($_SESSION["pelotas"],["left"=>$left=rand(10,150),"top"=>$top=rand(10,150)]);
                   print_r($_SESSION["pelotas"]);
 
                 echo"<table>"; 
@@ -97,10 +97,18 @@ if(isset($_POST["reset"])){
         }
     </style>
 <body>
+        <?php
+            foreach ($_SESSION["pelotas"] as $key => $value) {
+               $left=$value["left"];
+               $top=$value ["top"];
+                echo "<div class='rojo' style='top: {$top}px; left: {$left}px;'></div>";
+
+            }
+        ?>
 <table>
     <tr>
         <td></td>
-        <td></td>
+        <td><y/td>
     </tr>
     <tr>
         <td></td>
