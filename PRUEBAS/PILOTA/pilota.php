@@ -9,52 +9,43 @@ if(!isset($_SESSION["pelotas"])){
      $_SESSION["pelotas"] = []; 
 }else{
 
-  
-   
             if(isset($_POST["AI"])){
                 $_myArray = [[1,0],[0,0]];
                   
             
                   array_push($_SESSION["pelotas"],["left"=>$left=rand(10,150),"top"=>$top=rand(10,150)]);
-                  print_r($_SESSION["pelotas"]);
-
-                echo"<table>"; 
-                    for ($i=0; $i < 2 ; $i++) {
-                    
-                            for ($s=0; $s < 2; $s++) { 
-                                
-                                if(($_myArray[$i][$s])==1){ 
-                                echo"<div class='rojo'></div>";
-                                
-                                } 
-                                if(($_myArray[$i][$s])==0){
-                                
-                                }
-                            
-                            } 
-                            
-                        }
-                
-                echo "</table>";
+                 
             }
 
-if(isset($_POST["AD"])){
+            if(isset($_POST["AD"])){
+
+                $_myArray = [[0,1],[0,0]];
+                  array_push($_SESSION["pelotas"],["left"=>$left=rand(250,400),"top"=>$top=rand(10,150)]);
+        
 
 
-}
-if(isset($_POST["BI"])){
+            }
+            if(isset($_POST["BI"])){
+                $_myArray = [[0,0],[1,0]];
+                  array_push($_SESSION["pelotas"],["left"=>$left=rand(10,150),"top"=>$top=rand(200,450)]);
 
-}
-if(isset($_POST["BD"])){
+            }
+            if(isset($_POST["BD"])){
 
-}
+            }
 
-if(isset($_POST["reset"])){
-       session_destroy(); // borra datos del servidor
+                
+            }
+
+            
+
     
-    }
+       
+     if(isset($_POST["reset"])){
+            session_destroy(); // borra datos del servidor
+            
+            }
 
-}
 
 
 ?>
@@ -98,6 +89,7 @@ if(isset($_POST["reset"])){
     </style>
 <body>
         <?php
+        
             foreach ($_SESSION["pelotas"] as $key => $value) {
                $left=$value["left"];
                $top=$value ["top"];
