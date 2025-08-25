@@ -3,18 +3,18 @@ session_start();
 $_myArray[][]=[[0,0],[0,0]];
 $left=0;
 $top=0;
-//aun falta que se pinten todos" las pelotas
+   
+
 
 if(!isset($_SESSION["pelotas"])){
      $_SESSION["pelotas"] = []; 
+    
 }else{
 
             if(isset($_POST["AI"])){
                 $_myArray = [[1,0],[0,0]];
-                  
-            
                   array_push($_SESSION["pelotas"],["left"=>$left=rand(10,150),"top"=>$top=rand(10,150)]);
-                 
+                 print_r($_SESSION["pelotas"]);
             }
 
             if(isset($_POST["AD"])){
@@ -22,8 +22,6 @@ if(!isset($_SESSION["pelotas"])){
                 $_myArray = [[0,1],[0,0]];
                   array_push($_SESSION["pelotas"],["left"=>$left=rand(250,400),"top"=>$top=rand(10,150)]);
         
-
-
             }
             if(isset($_POST["BI"])){
                 $_myArray = [[0,0],[1,0]];
@@ -31,16 +29,13 @@ if(!isset($_SESSION["pelotas"])){
 
             }
             if(isset($_POST["BD"])){
-
+                  $_myArray = [[0,0],[1,0]];
+                  array_push($_SESSION["pelotas"],["left"=>$left=rand(250,400),"top"=>$top=rand(200,450)]);
             }
 
                 
             }
 
-            
-
-    
-       
      if(isset($_POST["reset"])){
             session_destroy(); // borra datos del servidor
             
@@ -70,8 +65,8 @@ if(!isset($_SESSION["pelotas"])){
             background-color:red;
             position:absolute;
             border-radius:50%;
-            top: <?= $top ?>px;
-            left: <?= $left ?>px;
+          /*  top: <?= $top ?>px;
+            left: <?= $left ?>px;*/
         }
         table{
             border:1px solid black;
