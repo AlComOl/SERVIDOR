@@ -5,8 +5,11 @@ session_start();
 if(isset($_POST["juegoNuevo"])){
         $_SESSION["contador"]=0;
         setcookie(session_name(), '', time() - 3600, '/'); 
-        session_destroy();
-          
+        session_destroy();        
+}
+
+if(isset($_SESSION["finalizar"])){
+    $_SESSION["finalizar"]=0;
 }
 
 if(!isset($_SESSION["contador"])){
@@ -32,9 +35,9 @@ if (!isset($_SESSION["cartas"])) {
         }
 
 
-        print_r($_SESSION["cartas"]);
-        echo"<br>";
-         echo"<br>";
+        // print_r($_SESSION["cartas"]);
+        // echo"<br>";
+        //  echo"<br>";
 
 
     if(isset($_POST["carta1"])){
@@ -49,10 +52,10 @@ if (!isset($_SESSION["cartas"])) {
         print_r("Ya ");
        }
     }
-     echo"<br>";
-    print_r($_SESSION["cartas"]);
+    //  echo"<br>";
+    // print_r($_SESSION["cartas"]);
 
-    // print_r($_SESSION["contador"]);
+    print_r($_SESSION["contador"]);
 
      if(isset($_POST["carta2"])){
        if($_SESSION["contador1"]<=2){
@@ -75,6 +78,22 @@ if (!isset($_SESSION["cartas"])) {
     print_r($_SESSION["contador2"]);
     
 
+      if($_SESSION["contador"]>=3 || $_SESSION["contador1"]>=3 || $_SESSION["contador2"]>=3){
+            $puntuacion=0;
+            foreach ($_SESSION["cartas"] as $key => $value) {
+                $puntuacion+=$value["num"];  
+                // print_r($value["num"].",");
+            }
+          echo"<h1> $puntuacion </h1>";
+        }
+
+      if(isset($_POST["finalizar"])){
+        $puntuacion=0;
+        foreach ($_SESSION["cartas"] as $key => $value) {
+            $puntuacion+=$value["num"];
+        }
+        echo"<h1> $puntuacion </h1>";
+      }
     
 ?>
 
@@ -91,15 +110,6 @@ if (!isset($_SESSION["cartas"])) {
              echo"<img style='width:160px; height:140px;'src ='./cartasImg/{$value['letra']}{$value['num']}.svg'>";
            
         }
-
-        if($_SESSION["contador"]>=2 || $_SESSION["contador1"]>=2 || $_SESSION["contador2"]>=2){
-            $puntuacion=0;
-            foreach ($_SESSION["cartas"] as $key => $value) {
-                $puntuacion+=$value["num"];  
-                print_r($value["num"].",");
-            }
-        //  echo"$puntuacion"; 
-        }
            
     ?>
     <form method="post">
@@ -109,11 +119,13 @@ if (!isset($_SESSION["cartas"])) {
             <button style=" width:60px; heigth:10px; margin:30px 80px 20px 30px;" type="submit" name="carta3" value="">Carta</button>
         </div>
             <div>
-                <button style=" width:150px; heigth:10px; margin:30px 80px 20px 30px;" type="submit" name="" value="">Finalizar</button>
+                <button style=" width:150px; heigth:10px; margin:30px 80px 20px 30px;" type="submit" name="finalizar" value="">Finalizar</button>
                 <button style=" width:150px; heigth:10px; margin:30px 80px 20px 30px;" type="submit" name="juegoNuevo" value="">Nueva partida</button>
             </div>
     </form>
+ 
 
-    <h1><?php $puntuacion ?></h1>
+
+   
 </body>
 </html>
