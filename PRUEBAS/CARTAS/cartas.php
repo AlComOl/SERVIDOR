@@ -52,8 +52,7 @@ if (!isset($_SESSION["cartas"])) {
         print_r("Ya ");
        }
     }
-    //  echo"<br>";
-    // print_r($_SESSION["cartas"]);
+   
 
     print_r($_SESSION["contador"]);
 
