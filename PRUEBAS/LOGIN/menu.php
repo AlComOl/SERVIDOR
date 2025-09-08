@@ -14,7 +14,7 @@ session_start();
 <div style="display: flex; justify-content:space-between"> 
     <div><h1>Menu Alumno </h1></div>
      <form method="post" action="autenticar.php">
-         <div><button name="salir" value="" "style="color:red">Salir</button></div>
+         <div><button name="salir" value="" style="color:red">Salir</button></div>
      </form>
 </div>
 <?php endif; ?>
