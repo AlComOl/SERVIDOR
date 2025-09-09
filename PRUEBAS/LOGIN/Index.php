@@ -55,12 +55,17 @@ session_start();
             <div>
                 <button>Enviar</button>
             </div>
-                   <?php
-           if($_SESSION["vacio"]==true){
-            echo"<h3 'style=color:red;'>El usuario y contraseña no pueden estar vacios</h3>";
+<?php
+
+           if(isset($_SESSION["vacio"]) && $_SESSION["vacio"]==true){
+              
+            echo"<h3 style='color:red;'>El usuario y contraseña no pueden estar vacios</h3>";
+          
+           }
            
-           }else{
-            
+           
+           if(isset($_SESSION["bandera"])){
+             echo"<h3 style='color:red;'>Usuario o Contraseña erroneos</h3>";
            }
    
 
