@@ -1,8 +1,8 @@
 <?php
-// $Myarray=[[9],[8]];
+$Myarray=[[9],[8]];
 
 ?>
-<table style="border: 1px solid black;width: 400px;  height: 400px; " >
+<table style="border: 2px solid black;width: 270px;  height: 270px;border-collapse: collapse; " >
 <?php
  for ($i=1; $i <9 ; $i++) { 
 
@@ -10,12 +10,12 @@
     
     for ($z=1; $z < 8; $z++) { 
         
-        if($z %2==0){
+        if(($z+$i) %2==1){
           
-            echo '<td style="background-color: black;"> <?php echo"$z" ?> </td>';
+            echo '<td style="background-color: black;width: 30px;height: 30px; "></td>';
             
         }else{
-              echo '<td style="background-color: black;"></td>';
+              echo '<td style="background-color: white;width: 30px;height: 30px;"></td>';
         }
     
     }
