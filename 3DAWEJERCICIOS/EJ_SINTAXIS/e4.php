@@ -1,20 +1,23 @@
 <?php
 
 $array= array("abcd","abc","de","hjjj","g","wer");
-
 $longitud=count($array);
+$mayor=0;
+$menor=0;
 for ($i=0; $i < $longitud; $i++) {
     for ($z=0; $z < strlen($array[$i]); $z++) { 
-        $valor= strlen($array[$z]);
-        if($valor>1){
-            $mayor=$valor;
 
-        }else{
+        $valor= strlen($array[$i]);
 
-        }
+       
     }
-    print_r($valor);
+     print_r($valor);
 }
+
+echo"<br>";
+
+
+echo"La longitud mas corta es ".$menor." y a mas larga ".$mayor;
 
 
 ?>
