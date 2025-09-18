@@ -9,6 +9,13 @@ for ($i=0; $i < $longitud; $i++) {
 
         $valor= strlen($array[$i]);
 
+        if($valor>$mayor){
+            $mayor=$valor;
+            $menor=$mayor;
+        }elseif($valor<$menor&&$valor<$menor){
+            $menor=$valor;
+        }
+
        
     }
      print_r($valor);
