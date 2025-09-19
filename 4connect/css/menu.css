@@ -1,0 +1,59 @@
+body{
+    height: 80vh;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    color: red;
+}
+
+.botones{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+
+.botones > form{
+    margin: 10px;
+}
+
+.botones > form > button{
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.botones > form:nth-child(1) > button{
+    background-color: rgb(255, 255, 0);
+}
+
+.botones > form:nth-child(2) > button{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.botones > form:nth-child(1) > button:hover{
+    background-color: rgb(255, 255, 181);
+    
+}
+
+.botones > form:nth-child(2) > button:hover{
+    background-color: rgb(255, 156, 156);
+    
+}
+
+.botones > form:nth-child(1) > button:active{
+    background-color: rgb(255, 255, 255);
+    color:  yellow;
+}
+
+.botones > form:nth-child(2) > button:active{
+    background-color: rgb(255, 255, 255);
+    color:  rgb(255, 0, 0);
+    
+}
