@@ -27,10 +27,10 @@ for ($i=1; $i < 11; $i++) {
 <body>
     <table border=1>
         <?php
-            for ($t=1; $t < 10; $t++) {
-                echo"<tr style='border:20px solid back;border-collapse:collapse;width:30px; heigth:30px;'>"; 
-                for ($x=1; $x <10 ; $x++) { 
-                     echo"<td style='border:20px solid back;border-collapse:collapse; width:30px; height: 30px;'></td>"; 
+            for ($i=1; $i < 11; $i++) {
+                echo"<tr style='border:20px solid black;width:30px; heigth:30px;'>"; 
+                for ($z=1; $z <11 ; $z++) { 
+                     echo"<td style='border:20px solid black; width:30px; height: 30px;'>".$myarray1[$i][$z]."</td>"; 
                 }
                 echo"</tr>";
             }
