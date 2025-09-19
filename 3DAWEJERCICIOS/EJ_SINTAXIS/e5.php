@@ -28,12 +28,20 @@ for ($i=1; $i < 11; $i++) {
     <table border=1>
         <?php
             for ($i=1; $i < 11; $i++) {
-                echo"<tr style='border:20px solid black;width:30px; heigth:30px;'>"; 
+                echo"<tr>"; 
                 for ($z=1; $z <11 ; $z++) { 
-                     echo"<td style='border:20px solid black; width:30px; height: 30px;'>".$myarray1[$i][$z]."</td>"; 
+                   if($myarray1[$i][$z]==$i){
+                     echo"<td style='border:2px solid black; width:30px; height: 30px;background-color:red'>".$myarray1[$i][$z]."</td>";
+                   }else{
+                    echo"<td style='border:2px solid black; width:30px; height: 30px;'>".$myarray1[$i][$z]."</td>";
+
+                   }
+                   
+                     } 
+                     echo"</tr>";
                 }
-                echo"</tr>";
-            }
+                
+            
 
         ?>
     </table>
