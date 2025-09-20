@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 $myarray=[0,0,0,0,0,0,0,0,0];
@@ -24,23 +27,32 @@ for ($i=1; $i < 11; $i++) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+ 
+</style>
 <body>
     <table border=1>
         <?php
             for ($i=1; $i < 11; $i++) {
                 echo"<tr>"; 
                 for ($z=1; $z <11 ; $z++) { 
-                   if($myarray1[$i][$z]==$i){
-                     echo"<td style='border:2px solid black; width:30px; height: 30px;background-color:red'>".$myarray1[$i][$z]."</td>";
-                   }else{
-                    echo"<td style='border:2px solid black; width:30px; height: 30px;'>".$myarray1[$i][$z]."</td>";
-
-                   }
-                   
-                     } 
-                     echo"</tr>";
-                }
-                
+                  if($myarray1[$i][$z]==$i){
+                    $color='background-color:red';
+                    
+                  }
+                   elseif($myarray1[$i][$z]==$z){
+                    $color='background-color:blue';
+                  }
+                  elseif($myarray1[$i][$z]!==$z  || $myarray1[$i][$z]!==$i){
+                    $color='background-color:white';
+                  }
+               
+                    echo"<td style='border:2px solid black; width:30px; height: 30px;$color'>".$myarray1[$i][$z]."</td>";   
+             
+                } 
+                echo"</tr>";
+              }
+        
             
 
         ?>
