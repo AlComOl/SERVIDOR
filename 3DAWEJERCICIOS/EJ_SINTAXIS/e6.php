@@ -24,17 +24,35 @@ echo"***************ORDENADOS**************** <br>";
 sort($myarray);
 
 print_r($myarray);
-
+echo "<br>";
 echo"***************ORDENADOS INVERSO**************** <br>";
 
 
 rsort($myarray);
 print_r($myarray);
+echo "<br>";
+echo"******************************MINIMO MAXIMO MEDIA**************** <br>";
 
+echo max($myarray);
+echo"<br>";
+echo min($myarray);
+echo"<br>";
+$item=0;
+for ($i=0; $i < 50; $i++) { 
+    $item+=$myarray[$i];
+    echo"$item ,";
+}
+echo"suma $item";
+$media=$item/50;
+echo"<br>";
 
-    // print_r($myarray);
+echo"media $media";
+echo"<br>";
+echo"***********************************otra manera de hacerlo*******************************";
 
-
+$value=round(array_sum($myarray)/count($myarray));
+echo" <br>";
+echo"media $value";
 ?>
     
 </body>
