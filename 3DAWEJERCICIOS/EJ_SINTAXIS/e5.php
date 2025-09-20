@@ -36,11 +36,11 @@ for ($i=1; $i < 11; $i++) {
             for ($i=1; $i < 11; $i++) {
                 echo"<tr>"; 
                 for ($z=1; $z <11 ; $z++) { 
-                  if($myarray1[$i][$z]==$i){
+                  if($myarray1[$i][$z]==$z){
                     $color='background-color:red';
                     
                   }
-                   elseif($myarray1[$i][$z]==$z){
+                   elseif($myarray1[$i][$z]==$i){
                     $color='background-color:blue';
                   }
                   elseif($myarray1[$i][$z]!==$z  || $myarray1[$i][$z]!==$i){
