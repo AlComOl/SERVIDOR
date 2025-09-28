@@ -5,8 +5,8 @@ Finalmente, muestra el resultado por pantalla.
 Interesant(e usar array_count_values. -->
 <?php
   $sexo=[];
-  $contM=0;
-  $contF=0;
+//   $contM=0;
+//   $contF=0;
 $a=0;
 while ($a <= 50) {
     $a++;
@@ -18,18 +18,20 @@ while ($a <= 50) {
 
 }
 
-foreach ($sexo as $key => $value) {
+print_r(array_count_values($sexo));
+
+// foreach ($sexo as $key => $value) {
 
 
-    $value=="M" ? $contM++ :$contF++;
+//     $value=="M" ? $contM++ :$contF++;
     
-    echo"$key  =>  $value";
-    echo "<br>";
-}
+//     echo"$key  =>  $value";
+//     echo "<br>";
+// }
 
-echo"M => $contM            ";
+// echo"M => $contM            ";
 
-echo"F => $contF";
+// echo"F => $contF";
 
 
 ?>
