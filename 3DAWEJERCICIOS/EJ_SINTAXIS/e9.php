@@ -22,9 +22,19 @@ array("comunidad" => "País Vasco", "provincias" => array("Bilbao" => 124, "San 
 array("comunidad" => "La Rioja", "provincias" => array("Logroño" => 1081))
 );
 
-foreach ($comunidades as $provincias) {
-    foreach ($provincias as $key => $value) {
+
+foreach ($comunidades as $comunidad) {
+
+         echo" comunidad: ". $comunidad['comunidad'] ."<br>";
+
+    foreach ($comunidad["provincias"] as $provincias => $rayos) {
         
-}
+       echo" $provincias => $rayos <br>";
+        }
+        
+    }
+
+echo"<br>";
+
 
 ?>
