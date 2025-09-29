@@ -14,10 +14,26 @@ $myarray=[ ['nombre'=>'Bruce', 'apellido'=>'Wane', 'ciudad'=>'Gotham'],
             ['nombre'=>'Andres', 'apellido'=>'Sevilla', 'ciudad'=>'Magaluf'],
             ['nombre'=>'Laya', 'apellido'=>'Servido', 'ciudad'=>'Jaen']
         ];
-
-        foreach ($myarray as $key => $value) {
-
-            echo"<table>";
-            echo"<tr>";
-            echo"[$value]";
-        }
+        echo"<table style='border:1px black solid' >";
+       
+        foreach ($myarray as $persona) {
+       
+          echo"<tr style='border:2px solid black'>";
+          
+            foreach ($persona as $key => $value) {
+                 $tam=count($persona);
+                    
+                echo"<td style='border:2px solid black'>";
+                       echo"$value"; 
+                        
+                 echo"</td>";        
+                  
+            }
+            echo"<td>";
+              echo"$tam"; 
+            echo"</td>";
+          echo"</tr>";
+          
+        } 
+         
+         echo"</table>";
