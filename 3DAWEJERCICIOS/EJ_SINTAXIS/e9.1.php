@@ -76,19 +76,19 @@ foreach ($universidades as $key => $value) {
 
             if(is_array($item)){
 
+                echo "<strong>$key1:</strong><br>";
+
                 foreach ($item as $key2 => $item2) {
 
                     echo"$key2 [";
 
                     if(is_array($item2)){
-
-                        foreach ($item2 as  $modulo) {
-
-                            echo"$modulo ";
-                        }
+                        
+                            echo implode(", ", $item2 );
+                        
                         echo"] <br>";
                     }else{
-                        echo"$item2 => $modulo";
+                        echo"$item2 ";
                     }
 
                 }
