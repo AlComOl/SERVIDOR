@@ -83,8 +83,9 @@ foreach ($universidades as $key => $value) {
                     echo"$key2 [";
 
                     if(is_array($item2)){
-                        
-                            echo implode(", ", $item2 );
+
+                            echo"$key";
+                            // echo implode(", ", $item2 );
                         
                         echo"] <br>";
                     }else{
