@@ -36,16 +36,20 @@ array("comunidad" => "La Rioja", "provincias" => array("Logroño" => 1081))
 
 // echo"<br>";
 
-$t=0;
+
 foreach ($comunidades as $comunidad) {
+
+   echo "<h1> ". $comunidad['comunidad'] ." </h1>";
   
   foreach ($comunidad as $key => $value) {
-    
+
+ 
+    $t=0;
     foreach ($value as $key => $value) {
       if($value<500){
-        echo"<h5 style='color:red'>$key => $value</h5>";
+        echo"<h5 style='color:green'>$key => $value</h5>";
       }else{
-          echo"<h5 style='color:green'>$key => $value</h5>";
+          echo"<h5 style='color:red'>$key => $value</h5>";
 
       }
       $t=$t+$value;
@@ -55,7 +59,7 @@ foreach ($comunidades as $comunidad) {
    
   }
 
-   echo"Casos totales en $comunidad => $t  <br>";
+   echo"<strong><em> Casos totales en  ". $comunidad['comunidad']. "  :  " .$t ."</em></strong><br>";
 }
   
 
