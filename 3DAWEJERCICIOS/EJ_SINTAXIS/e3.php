@@ -2,7 +2,7 @@
 $Myarray=[[9],[8]];
 
 ?>
-<table style="border: 2px solid black;width: 270px;  height: 270px;border-collapse: collapse; " >
+<table style="border: 2px solid black;width: 270px;  height: 270px;border-collapse: collapse;" >
 <?php
  for ($i=1; $i <9 ; $i++) { 
 
