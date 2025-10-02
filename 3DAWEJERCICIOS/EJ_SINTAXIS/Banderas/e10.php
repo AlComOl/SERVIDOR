@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <style>
-    table,tr,th{
+    table,tr,td,th{
         border:1px solid black;
     }
 </style>
@@ -40,7 +40,7 @@ foreach ($continentes as $continente) {
         <th>Capital</th>
         <th>Bandera</th>
     </tr>
-    </table>
+    
     <?php
     
     foreach ($continente['paises'] as $paises) {
