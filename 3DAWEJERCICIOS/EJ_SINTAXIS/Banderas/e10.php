@@ -1,4 +1,19 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,tr,th{
+        border:1px solid black;
+    }
+</style>
+<body>
+    
+</body>
+</html>
 
 <?php
 //Dado el siguiente array se tratará de mostrar los paises de algunos continentes y sus banderas.
@@ -14,6 +29,11 @@ array("continente"=>"Oceanía", "paises"=>array(array("pais"=>"Australia", "capi
 ?>
 
 <table>
+    <tr>
+        <th>País</th>
+        <th>Capital</th>
+        <th>Bandera</th>
+    </tr>
     
 <?php
 
@@ -29,20 +49,19 @@ foreach ($continentes as $continente) {
             echo"<br>";
 
             foreach ($pais as $key => $value) {
+
+               
+                echo"<tr>";
+
+                echo'<th>'.$key.'</th><th>'. $value .'</th>';
                 
-                echo"$key => $value <br>";
+
+                echo"</tr>";
             }
             
             
-        }
-
-     
-
-      
-
-    
-
-        
+        }  
     }
 }
-    
+?>
+</table> 
