@@ -34,8 +34,10 @@ array("continente"=>"Oceanía", "paises"=>array(array("pais"=>"Australia", "capi
 
 foreach ($continentes as $continente) {
     echo"<table>";
+    echo"<tr><th colspan='3'>";
     echo'<h1>'.$continente['continente'].'</h1>';
-    
+
+    echo"</th></tr>";
       
       ?>
       <tr>
