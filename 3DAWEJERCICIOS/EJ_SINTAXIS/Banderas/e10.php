@@ -31,10 +31,12 @@ array("continente"=>"Oceanía", "paises"=>array(array("pais"=>"Australia", "capi
 
     
 <?php
+
 foreach ($continentes as $continente) {
+    echo"<table>";
     echo'<h1>'.$continente['continente'].'</h1>';
     
-      echo"<table>";
+      
       ?>
       <tr>
         <th>País</th>
