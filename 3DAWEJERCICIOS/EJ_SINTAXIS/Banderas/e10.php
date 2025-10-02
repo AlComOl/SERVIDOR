@@ -33,25 +33,29 @@ array("continente"=>"Oceanía", "paises"=>array(array("pais"=>"Australia", "capi
 <?php
 foreach ($continentes as $continente) {
     echo'<h1>'.$continente['continente'].'</h1>';
-    ?>
-    <table>
-    <tr>
+    
+      echo"<table>";
+      ?>
+      <tr>
         <th>País</th>
         <th>Capital</th>
         <th>Bandera</th>
     </tr>
-    
+     
     <?php
     
     foreach ($continente['paises'] as $paises) {
+      
+       
          echo'<tr>';
-            echo'<td>'.$paises['pais'].'<td>';
-            echo'<td>'.$paises['capital'].'<td>';
-            echo'<td>'.$paises['bandera'].'<td>';
-            echo'<br>';
+            echo'<td>'.$paises['pais'].'</td>';
+            echo'<td>'.$paises['capital'].'</td>';
+            echo'<td><img src="'.$paises["bandera"].'"</td>';
+        
          echo'</tr>'; 
     }
+   
 }
-
+ echo"</table>";
 ?>
-</table> 
+ 
