@@ -38,5 +38,3 @@ echo"La longitud mas corta es ".$menor." y a mas larga ".$mayor;
 </head>
 <body>
     
-</body>
-</html>
