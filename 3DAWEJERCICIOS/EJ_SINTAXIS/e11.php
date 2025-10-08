@@ -24,6 +24,9 @@ $rgb=0;
 
 
 echo "<table>";
+
+echo "<th>=PALETA COLORES=</th>";
+
 echo"<tr>";
 for($i=0; $i<=250; $i=$i+50) {
   //$rgb.=$i.","; 
@@ -34,11 +37,12 @@ for($i=0; $i<=250; $i=$i+50) {
     
      for ($y=0; $y <= 250; $y=$y+50) {
 
-      echo"<td>";
+      echo"<td style='background-color:rgb(".$i.",".$z.",".$y.")'>";
 
-       echo "#".dechex($i), dechex($z), dechex($y)."<br>" ;
+        echo "rgb(#". dechex($i), dechex($z), dechex($y).")"."<br>" ;
 
       echo"</td>";
+      
       
       
     }
