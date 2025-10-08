@@ -21,6 +21,10 @@ $g=0;
 $b=0;
 $rgb=0;
 
+
+
+echo "<table>";
+echo"<tr>";
 for($i=0; $i<=250; $i=$i+50) {
   //$rgb.=$i.","; 
 
@@ -28,17 +32,22 @@ for($i=0; $i<=250; $i=$i+50) {
     
      //$rgb.=$z.","; 
     
-     for ($y=0; $y <= 250; $y=$y+50) { 
-      //$rgb.=$y."<br>";
-       echo dechex($i)'($z).','.($y) <br>";
+     for ($y=0; $y <= 250; $y=$y+50) {
+
+      echo"<td>";
+
+       echo "#".dechex($i), dechex($z), dechex($y)."<br>" ;
+
+      echo"</td>";
       
       
     }
+    echo"</tr>";
   }
 }
+echo"</table>";
 
-print_r($rgb);
+
 
 
 ?>
-</table>
