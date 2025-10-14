@@ -41,15 +41,25 @@ $alumNotas=array("Ana"=>array("nota1"=>"6","nota2"=>"7","nota3"=>"9"),
   
   echo "<table>";
   echo"<th>Nombre</th>";
+    echo"<th>Nota1</th>";
+      echo"<th>Nota2</th>";
+        echo"<th>Nota3</th>";
+          echo"<th>Media</th>";
+            echo"<th>Resultado</th>";
+
+   echo"<th>$notas</th>";
     foreach($alumNotas as $clave => $valor){
-    
+   
       echo"<tr>";
     
       echo "<td>$clave</td>";
-    
+ 
+     
+      
         foreach($valor as $notas=>$nota){
+ 
           
-           echo"<th>$notas</th><td>$nota</td>";
+           echo"<td>$nota</td>";
            $res+=$nota;
         }
              $media=$res/3;
@@ -61,6 +71,7 @@ $alumNotas=array("Ana"=>array("nota1"=>"6","nota2"=>"7","nota3"=>"9"),
           
          echo"<td>$aprovado</td>";
         echo"</tr>";
+      
         
        
       echo"<br>";
