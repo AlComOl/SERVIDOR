@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
+  <style>
+    table{
+      border:2px solid black;
+    }
+    td{
+      width: 30px;
+      height: 30px;
+      border:2px solid black;
+      
+
+    }
+    tr{
+      width: 30px;
+      height: 30px;
+      border:2px solid black;
+    }
+  </style>
     
 </body>
 </html>
@@ -20,15 +37,22 @@ $alumNotas=array("Ana"=>array("nota1"=>"6","nota2"=>"7","nota3"=>"9"),
 
 
 
-    echo "<table>";
-    echo"<tr>";
-    echo"Nombres";
+   $res=0;
+  
+  echo "<table>";
     foreach($alumNotas as $clave => $valor){
-      echo "$clave <br>";
+      echo"<tr>";
+      echo "<td>$clave</td>";
+    
         foreach($valor as $notas){
            echo"<td>$notas</td>";
+           $res+=$notas;
         }
-        echo"<tr>";
+        $media=$res/3;
+         echo"<td>$media</td>";
+        echo"</tr>";
+       
+      echo"<br>";
     }
     echo"</table>";
 ?>
