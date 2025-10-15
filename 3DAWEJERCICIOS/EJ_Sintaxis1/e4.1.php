@@ -27,19 +27,71 @@
 </html>
 
 <?php
+// echo"<table>";
+// echo"<tr>";
+// for($i=1;$i<=10;$i++){
+//       echo"<td style='background-color:red;color:white';>".$i."</td>";
+//     for($z=2;$z<=10;$z++){
+//        if($i===1){     
+//             echo"<td style='background-color:blue ; color:white;'>".$i*$z."</td>";
+//         }else{
+//             echo"<td style='background-color:white'>".$i*$z."</td>";
+//         }
+//     }
+//     echo"</tr>";
+// }
+
+
 echo"<table>";
-for($i=1;$i<=10;$i++){
-      echo"<td style='background-color:red'>".$i."</td>";
-    for($z=1;$z<=9;$z++){
-        if($i===1){
-            echo"<td style='background-color:blue'>".$i*($z+1)."</td>";
+
+for ($i=1; $i <=10 ; $i++) {
+    echo"<tr>"; 
+    for ($z=1; $z <=10; $z++) { 
+        if($i==1){
+            echo"<td style='background-color:blue;color:white;'>".$i*$z."</td>";
+        }elseif ($z==1) {
+            echo"<td style='background-color:red;color:white;'>".$i*$z."</td>";
         }else{
-            echo"<td style='background-color:white'>".$i*($z+1)."</td>";
+             echo"<td style='background-color:white;color:black;'>".$i*$z."</td>";
         }
     }
-    echo"</tr>";
+    
 }
+
 echo"</table>";
 
 
-?>
+// echo "<table border=1>";
+
+
+
+// for ($i = 1; $i <= 10; $i++) {
+
+// echo "<tr>";
+// for ($j = 1; $j <= 10; $j++) {
+
+// if ($i == 1) {
+// echo "<td style='background-color:blue; color:white;'>" . $i * $j . "</td>";
+// } elseif ($j == 1) {
+// echo "<td style='background-color:red; color:white;'>" . $i * $j . "</td>";
+// } else {
+// echo "<td>" . $i * $j . "</td>";
+// }
+// }
+// echo "</tr>";
+// }
+
+// ?>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
