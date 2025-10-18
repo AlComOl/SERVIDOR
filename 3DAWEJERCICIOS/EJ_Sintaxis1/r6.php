@@ -11,6 +11,8 @@
 <style>
     table{
         border: 1px solid black;
+        width: 200px;
+        height: 200px;
     }
     td,tr{
         text-align:center;
@@ -21,15 +23,35 @@
 <?php
 
 $deportes=array("Futbol"=>5,"Balocesto"=>6,"Tenis"=>7);
+
+
+foreach ($deportes as $key => $value) {
+    $v[]=$value;
+}
+    $mayor=max($v);
+
+
+
 echo"<table>";
 echo"<th>Deporte</th>";
 echo"<th>Votos</th>";
 
+$res=0;
+
 foreach($deportes as $deporte => $votos){
     echo"<tr>";
-    echo"<td>$deporte</td><td>$votos</td><br>";
-    echo"</tr>";
+    
+     
+    if($votos===$mayor){
+         echo"hola";
+         echo"<td><strong>$deporte</strong></td>";
+         echo"<td><strong>$votos</strong></td>";
+    }else{
+         echo"<td>$deporte</td>";
+         echo"<td>$votos</td>";
+    }
 }
-
+    
+ 
 
 ?>
