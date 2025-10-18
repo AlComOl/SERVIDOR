@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style>
 
+<style>
+table{
+    border:1px black solid;
+    width:270px;
+}
+tr,td{
+border:1px black solid;
+width: 30px;
+height: 30px;
+text-align: center;
+}
+td{
+
+}
 </style>
 <body>
     
@@ -29,7 +42,16 @@ echo"<th>Categoria</th>";
 echo"<th>Precio</th>";
 foreach($productos as $key => $value){
     echo"<tr>";
-    echo"<td>$value[nombre]</td><td>$value[categoria]</td><td>$value[precio]</td>";
+    echo"<td>$value[nombre]</td><td>$value[categoria]</td>";
+
+    if($value['precio']>=50){
+       
+        echo"<td><strong>$value[precio]</strong></td>";
+    }else{
+         echo"<td>$value[precio]</td>";
+    }
+    
+   
 }
 echo"</tr>";
 echo"</table>";
