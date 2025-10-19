@@ -48,38 +48,47 @@ $tiendas1 = [
         "Abril"=>5000
     ],
 ];
-$monthEarn=0;
-$EarnArrayTotal[]=0;
-$highestMonthlyProfit=0;
-$maxKey[]=0;
-echo "<table>";
-echo"<th>Tiendas</th>";
+$myArray[]=0;
+$newArray[]=0;
+$totalMes=0;
+$maxMes=0;
+$indexStrong=0;
+$count=0;
+
+echo"<table>";
+echo"<th>Tienda</th>";
 echo"<th>Enero</th>";
 echo"<th>Febrero</th>";
 echo"<th>Marzo</th>";
-
-foreach($tiendas as $mes => $ingreso){
- 
+foreach ($tiendas as $meses => $precio) {
     echo"<tr>";
- 
-          echo"<td>$mes</td>";
-   
-  
-        foreach( $ingreso as $ingresos){
-            $monthEarn += $ingresos;
-            echo"<td>$ingresos</td>";
-         
-        }
-         
+     echo"<td>$meses</td>";
+     $count++;
+    foreach($precio as $precios){
 
-        echo"$monthEarn<br>";
-        $highestMonthlyProfit= array_push($EarnArrayTotal,$monthEarn);
-        $monthEarn=0;
-         
-     echo"</tr>";
+         echo"$count _ $indexStrong, ";
+        if($indexStrong===$count){
+           
+          
+        echo"<td><strong>$precios</strong></td>";
+        }else{
+          echo"<td>$precios</td>";  
+        }
+        $totalMes+=$precios;  
+    }
+   
+      $newArray=array_push($myArray,$totalMes);     
+      $totalMes=0;
 }
-       $highestMonthlyProfit=max($EarnArrayTotal);
-       $maxKey =array_search($highestMonthlyProfit,$EarnArrayTotal);
+ echo"<tr>";
+  echo"</table>";
+$maxMes=max($myArray);
+echo"$maxMes <br>";
+$indexStrong=array_search($maxMes,$myArray);
+echo"$indexStrong";
+
+
+
 
 
 
