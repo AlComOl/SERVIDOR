@@ -60,32 +60,26 @@ echo"<th>Tienda</th>";
 echo"<th>Enero</th>";
 echo"<th>Febrero</th>";
 echo"<th>Marzo</th>";
-foreach ($tiendas as $meses => $precio) {
-    echo"<tr>";
-     echo"<td>$meses</td>";
-     $count++;
-    foreach($precio as $precios){
-
-         echo"$count _ $indexStrong, ";
-        if($indexStrong===$count){
-           
-          
-        echo"<td><strong>$precios</strong></td>";
-        }else{
-          echo"<td>$precios</td>";  
+    foreach ($tiendas as $meses => $precio) {
+        echo"<tr>";
+        echo"<td>$meses</td>";
+        echo"$meses";
+        foreach($precio as $precios){
+                if($indexStrong===$meses-2){
+                    echo"<td><strong>$precios</strong></td>";
+                }else{
+                    echo"<td>$precios</td>";  
+                }
+            $totalMes+=$precios;  
         }
-        $totalMes+=$precios;  
+        
+        $newArray=array_push($myArray,$totalMes);     
+        $totalMes=0;
     }
-   
-      $newArray=array_push($myArray,$totalMes);     
-      $totalMes=0;
-}
- echo"<tr>";
-  echo"</table>";
+echo"<tr>";
+echo"</table>";
 $maxMes=max($myArray);
-echo"$maxMes <br>";
 $indexStrong=array_search($maxMes,$myArray);
-echo"$indexStrong";
 
 
 
