@@ -49,9 +49,9 @@ $tiendas1 = [
     ],
 ];
 $monthEarn=0;
-$EarnArrayTotal=[];
+$EarnArrayTotal[]=0;
 $highestMonthlyProfit=0;
-$maxKey=0;
+$maxKey[]=0;
 echo "<table>";
 echo"<th>Tiendas</th>";
 echo"<th>Enero</th>";
@@ -59,24 +59,31 @@ echo"<th>Febrero</th>";
 echo"<th>Marzo</th>";
 
 foreach($tiendas as $mes => $ingreso){
+ 
     echo"<tr>";
-    echo"$maxKey,$mes";
-    if($maxKey===$mes){
-          echo"<td><strong>$mes</strong></td>";
-    }else{
+ 
           echo"<td>$mes</td>";
-    }
+   
   
         foreach( $ingreso as $ingresos){
-            $monthEarn+=$ingresos;
+            $monthEarn += $ingresos;
             echo"<td>$ingresos</td>";
+         
         }
-         array_push($EarnArrayTotal,$monthEarn);
+         
+
+        echo"$monthEarn<br>";
+        $highestMonthlyProfit= array_push($EarnArrayTotal,$monthEarn);
         $monthEarn=0;
+         
      echo"</tr>";
 }
- $highestMonthlyProfit=max($EarnArrayTotal);
- $maxKey=array_search($highestMonthlyProfit,$EarnArrayTotal);
- print_r($maxKey);
-  
+       $highestMonthlyProfit=max($EarnArrayTotal);
+       $maxKey =array_search($highestMonthlyProfit,$EarnArrayTotal);
+
+
+
+ 
+
+
 ?>
