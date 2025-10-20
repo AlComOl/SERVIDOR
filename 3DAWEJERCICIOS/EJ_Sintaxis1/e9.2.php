@@ -19,22 +19,24 @@ array("comunidad" => "Comunidad Valenciana", "provincias" => array("Valencia" =>
 array("comunidad" => "País Vasco", "provincias" => array("Bilbao" => 124, "San Sebastián" => 8124, "Vitoria" => 259)),
 array("comunidad" => "La Rioja", "provincias" => array("Logroño" => 1081))
 );
-
+$total=0;
 foreach ($comunidades as $comunidad => $provincias) {
 
- 
-        echo"$provincias[comunidad]<br>";
+        echo" <h2>$provincias[comunidad]</h2><br>";
 
     foreach ($provincias['provincias'] as $key => $value) {
-        echo"$key => $value <br>";
-      
+
+        if($value>=500){
+            echo" <h3 style='color:red'>$key => $value</h3> <br>";
+        }else if($value<=500){
+            echo"<h3 style='color:green'>$key => $value</h3><br>";
+        }
+            
     }
-             
-    }
-    
-
-
-
+    $total+=$value;  
+         echo"<h3 style='font-style: oblique;'>Casos totales en la $provincias[comunidad] -> $total</h3><br>"; 
+    $total=0;
+}
 ?>
 
 
