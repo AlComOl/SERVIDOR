@@ -25,8 +25,9 @@ foreach ($comunidades as $comunidad => $provincias) {
  
         echo"$provincias[comunidad]<br>";
 
-    foreach ($provincias as $key => $value) {
-        echo"$provincias";
+    foreach ($provincias['provincias'] as $key => $value) {
+        echo"$key => $value <br>";
+      
     }
              
     }

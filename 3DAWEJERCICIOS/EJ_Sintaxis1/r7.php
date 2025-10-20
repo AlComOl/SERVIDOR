@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tiendas</title>
 </head>
 <style>
     table{  
@@ -55,7 +55,7 @@ $maxMes=0;
 $indexStrong=0;
 $count=0;
 
-foreach ($tiendas as $meses => $precio) {
+foreach ($tiendas as $clave => $precio) {
     foreach ($precio as $precios) {
          $totalMes+=$precios; 
     }
@@ -73,9 +73,9 @@ echo"<th>Tienda</th>";
 echo"<th>Enero</th>";
 echo"<th>Febrero</th>";
 echo"<th>Marzo</th>";
-    foreach ($tiendas as $meses => $precio) {
+    foreach ($tiendas as $clave => $precio) {
         echo"<tr>";
-        echo"<td>$meses</td>";
+        echo"<td>$clave</td>";
 
         $count++;
         echo"$count";
@@ -91,14 +91,4 @@ echo"<th>Marzo</th>";
     }
 echo"<tr>";
 echo"</table>";
-
-
-
-
-
-
-
- 
-
-
 ?>
