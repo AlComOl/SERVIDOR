@@ -65,10 +65,11 @@ foreach ($bibliotecas as $nombre) {
 
             echo" * $libros[titulo]<br>";
 
-            // foreach($libros["autores"] as $autor){
-            //     $autor["autores"];
+             foreach($libros['autores'] as $autor){
+               
+               echo"__Autor => $autor <br>";
 
-            // }
+             }
 
          }
 
