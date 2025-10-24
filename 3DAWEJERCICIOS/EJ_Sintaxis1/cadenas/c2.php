@@ -109,6 +109,60 @@ for ($i = 0; $i < count($robotComponents); $i++) { //1 5W
         echo "<br>";
 }
 
+echo"<h3>Ejercicio 7</h3>";
+
+echo "<p></Dado un número cualesquiera, por ejemplo, 1123456789, se trata separar en millares 1.123.456.789, usando funciones de cadenas.>";
 
 
 
+$numero=strval(1123456789);
+
+
+// echo $lon ."<br>";
+$reverse="";
+for ($i=9; $i >= 0; $i--) {
+        if($i%3==0){    
+        $reverse.=".";
+        }
+    $reverse.=$numero[$i];
+
+}
+
+echo"$reverse";
+
+
+$convert="";
+
+echo"$convert <br>";
+
+for ($z=13; $z >= 0; $z--) { 
+     $convert.=$reverse[$z];
+}
+
+echo $convert ."<br>";
+$con="";
+for ($y=0; $y <13 ; $y++) { 
+    $con.=$convert[$y];
+}
+echo"$con";
+echo"<br>";
+echo "Solucion con strlen";
+
+$num="123456789";
+
+$resultado=$num;
+$primera;
+$segunda;
+
+for ($i = strlen($num) - 3 ; $i > 0 ; $i-=3)
+{
+$primera=substr($resultado,0,$i);
+$segunda=substr($resultado,$i);
+
+$resultado=$primera.".".$segunda;
+
+}
+
+echo $resultado;
+
+echo "<h3>Ejercicio 8</h3>";
