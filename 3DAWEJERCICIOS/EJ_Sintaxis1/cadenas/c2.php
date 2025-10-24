@@ -46,6 +46,74 @@ $cadena="hola que tal como estas";
 for($i=0;$i<strlen($cadena);$i++){
 
     echo $cadena[$i]."->".substr_count($cadena,$cadena[$i])."<br>";
+    echo $cadena[$i]."->".substr_count($cadena,$cadena[$i])."  ,  ";
+
+}
+echo"<br>";
+
+echo"De la manera tradicional <br>";
+echo"<br>";
+
+$count=0;
+for($z=0;$z< strlen($cadena);$z++){
+   for ($i=0; $i < strlen($cadena) ; $i++) { 
+
+        $cadena[$z]===$cadena[$i]?$count++:$count;
+   }
+   echo" $cadena[$z] -> $count";
+   $count=0;
+}
+
+
+
+echo"<h3>Ejercicio 4 </h3>";
+echo"ROBOT";
+
+echo"<br><br><br><br><br>";
+$robot= "1 5W;1 1|2 1x1 1x2 1|;1@4 1U4 1@;1 1|2 3=2 1|;2 1\\5_1/";
+
+
+$robotComponents=explode(";",$robot);
+
+
+
+
+print_r($robotComponents);
+
+echo "<br>";
+$pelo=0;
+$ojos="";
+$caraOjos=0;
+$flag=true;
+
+
+for ($i=0; $i < count($robotComponents) ; $i++) { 
+
+
+    for ($z=0; $z < strlen($robotComponents[$i]); $z++) { 
+      
+     
+       for ($x=0; $x < 5 ; $x++) { 
+      
+        switch ($i) {
+          case 0:
+            $pelo=substr($robotComponents[$i],3,1); 
+            break;
+           case 1:
+            $ojos=substr($robotComponents[$i],2,1); 
+            break;  
+          
+          default:
+            # code...
+            break;
+        }
+          echo"$pelo";
+       }
+      echo"$ojos";
+    echo"<br>";
+     
+    }
+ 
 
 }
 
