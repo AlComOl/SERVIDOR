@@ -50,3 +50,4 @@ for($i=0;$i<strlen($cadena);$i++){
 }
 
 
+//foreach
