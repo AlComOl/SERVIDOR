@@ -1,5 +1,7 @@
 <?php
 
+echo"<h3>Ejercicio 3 </h3>";
+
 //Lee una frase y devuelve una nueva con solo los caracteres de las posiciones impares en letra mayúsculas.
 
 $frase="Hoy han venido a poner la cama, por la mañana ";
@@ -10,7 +12,7 @@ for ($i=0; $i <strlen($frase) ; $i++) {
 
     echo"$newFrase";
 }
-echo"<br>",
+echo"<br>";
 
 //     A partir de una frase con palabras sólo separadas por espacios, devolver
 
@@ -19,6 +21,9 @@ echo"<br>",
 // echad un vistazo a la función str_word_count
 //strlen -> longitud  
 //count -> cuenta logitud array
+
+echo"<h3>Ejercicio 4 </h3>";
+
 $phrase = "Vamos a mostrar las letras totales de la frase"."<br>";
 
 $phraseArray=explode(" ",$phrase);//pasamos array con separación
@@ -26,7 +31,10 @@ $phraseArray=explode(" ",$phrase);//pasamos array con separación
 print_r($phraseArray);
 
 $palabras=count($phraseArray);//contamos posiciones array (palabras)
-echo"<br><br>";
+
+echo"<h3>Ejercicio 5 </h3>";
+
+
 for($i=0;$i<count($phraseArray);$i++){
    echo strlen($phraseArray[$i]);//cuenta cada indice
     echo "<br>";
@@ -36,7 +44,7 @@ $vistazo=str_word_count($phrase);
 
 echo $vistazo;
 echo "<br>";
-
+echo"<h3>Ejercicio 5 </h3>";
 //A partir de una frase, devuelve la cantidad de cada una de las vocales,
 //y el total de ellas. Hacedlo de forma tradicional y usando substr_count.
 
@@ -66,7 +74,7 @@ for($z=0;$z< strlen($cadena);$z++){
 
 
 
-echo"<h3>Ejercicio 4 </h3>";
+echo"<h3>Ejercicio 6 </h3>";
 echo"ROBOT";
 
 
@@ -80,14 +88,14 @@ $robotComponents=explode(";",$robot);
 
 for ($i = 0; $i < count($robotComponents); $i++) { //1 5W
 
-    $parte = strlen($robotComponents[$i]);
-
-        for ($j = 0; $j < $parte; $j = $j + 2) {
 
 
-            $segmento = $robotComponents[$i];
-            $repe = $segmento[$j];
-            $dibu = $segmento[$j + 1];
+        for ($j = 0; $j < strlen($robotComponents[$i]); $j = $j + 2) {//longitud de la cadena
+
+
+            $segmento = $robotComponents[$i];//cadena para procesar 
+            $repe = $segmento[$j];//condicion proximo bucle 
+            $dibu = $segmento[$j + 1];//lo que pintará el bucle
 
             for ($k = 0; $k < $repe; $k++) {
 
