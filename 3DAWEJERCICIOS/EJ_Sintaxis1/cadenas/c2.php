@@ -69,52 +69,38 @@ for($z=0;$z< strlen($cadena);$z++){
 echo"<h3>Ejercicio 4 </h3>";
 echo"ROBOT";
 
-echo"<br><br><br><br><br>";
-$robot= "1 5W;1 1|2 1x1 1x2 1|;1@4 1U4 1@;1 1|2 3=2 1|;2 1\\5_1/";
 
+
+echo"<br><br><br>";
+$robot= "1 5W;1 1|2 1x1 1x2 1|;1@4 1U4 1@;1 1|2 3=2 1|;2 1\\5_1/";
 
 $robotComponents=explode(";",$robot);
 
 
 
+for ($i = 0; $i < count($robotComponents); $i++) { //1 5W
 
-print_r($robotComponents);
+    $parte = strlen($robotComponents[$i]);
 
-echo "<br>";
-$pelo=0;
-$ojos="";
-$caraOjos=0;
-$flag=true;
+        for ($j = 0; $j < $parte; $j = $j + 2) {
 
 
-for ($i=0; $i < count($robotComponents) ; $i++) { 
+            $segmento = $robotComponents[$i];
+            $repe = $segmento[$j];
+            $dibu = $segmento[$j + 1];
+
+            for ($k = 0; $k < $repe; $k++) {
 
 
-    for ($z=0; $z < strlen($robotComponents[$i]); $z++) { 
-      
-     
-       for ($x=0; $x < 5 ; $x++) { 
-      
-        switch ($i) {
-          case 0:
-            $pelo=substr($robotComponents[$i],3,1); 
-            break;
-           case 1:
-            $ojos=substr($robotComponents[$i],2,1); 
-            break;  
-          
-          default:
-            # code...
-            break;
+                echo "&nbsp;".$dibu; //genera espacios en html
+
+
         }
-          echo"$pelo";
-       }
-      echo"$ojos";
-    echo"<br>";
-     
     }
- 
 
+        echo "<br>";
 }
+
+
 
 
