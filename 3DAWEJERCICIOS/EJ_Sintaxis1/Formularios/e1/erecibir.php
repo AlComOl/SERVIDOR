@@ -1,11 +1,18 @@
 <?php
 
 $nombre=$_POST["Nombre"];
-$apellido=$_POST["Nombre"];
-$contraseña=$_POST["Nombre"];
+$apellido=$_POST["Apellido"];
+$contraseña=$_POST["Contraseña"];
+$puesto=$_POST["puesto"];
 
-echo"El nombre del que envio el formulario es $nombre ,  $apellido  y la contraseña: $contraseña";
 
+echo"<div style='background-color:yellow'>El nombre del que envio el formulario es $nombre ,  $apellido  y la contraseña: $contraseña <br> </div>";
+
+foreach ($_POST["puesto"] as $key => $value) {
+   $Apuesto =$value;
+}
+
+echo"El puesto en el Instituto es $Apuesto ";
 
 
 

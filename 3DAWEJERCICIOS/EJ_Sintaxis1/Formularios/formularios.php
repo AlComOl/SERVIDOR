@@ -17,7 +17,8 @@
 <br><br><br><br>
 
 </form>
-    <form action="./recibir.php" method="GET">
+
+<form action="./recibir.php" method="GET">
 
 
 <select name="lenguajes[]" multiple="true">

@@ -12,7 +12,7 @@
 
     </style>
 <body>
-    <form action="./e1" method="POST">
+    <form action="./erecibir.php" method="POST">
     <div class="">
         <label>Nombre</label>
         <input type="text" name="Nombre">
@@ -23,9 +23,9 @@
     </div>
     <div class="">
          <label>Profesion:</label>
-        <select name="" id="">
-            <option type="text" name="Alumno"  value="value1">Alumno</option>
-            <option type="text" name="Profesor" value="value2">Profesor</option>
+        <select name="puesto[]" id="">
+            <option value="alumno">Alumno</option>
+            <option value="Profesor">Profesor</option>
         </select>
     </div>
     <div class="">
@@ -57,12 +57,9 @@
         </textarea>
     </div>
 
-    <input type="submit" value="Enviar">
+    <input type="submit" name="enviar" value="Enviar" >
 
     <div></div>
-      
-
-
     </form>
 </body>
 </html>
