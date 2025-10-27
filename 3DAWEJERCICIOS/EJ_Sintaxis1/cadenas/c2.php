@@ -81,9 +81,7 @@ $robotComponents=explode(";",$robot);
 print_r($robotComponents);
 
 echo "<br>";
-$pelo=0;
-$ojos="";
-$caraOjos=0;
+
 $flag=true;
 
 
@@ -93,28 +91,14 @@ for ($i=0; $i < count($robotComponents) ; $i++) {
     for ($z=0; $z < strlen($robotComponents[$i]); $z++) { 
       
      
-       for ($x=0; $x < 5 ; $x++) { 
+       for ($x=0; $x < $z ; $x++) { 
       
-        switch ($i) {
-          case 0:
-            $pelo=substr($robotComponents[$i],3,1); 
-            break;
-           case 1:
-            $ojos=substr($robotComponents[$i],2,1); 
-            break;  
-          
-          default:
-            # code...
-            break;
-        }
-          echo"$pelo";
-       }
-      echo"$ojos";
-    echo"<br>";
+       
      
     }
  
 
-}
+ }
 
+}
 
