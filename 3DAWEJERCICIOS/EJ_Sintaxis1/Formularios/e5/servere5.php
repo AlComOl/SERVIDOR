@@ -18,18 +18,15 @@ print_r($_FILES);
 print "</pre>";
 
 $archivo=scandir($dir_subida);//el scandir lo recorre y mete dentro del array nuevo
-$newarchivo=array_slice($archivo,2);
+$newArchivo=array_slice($archivo,2);
 
  foreach ($newArchivo as $key => $value) {
   echo"<form method='POST'><img src='./$value'>$key  <button type='submit' name='eliminar' id='' value='$value'>Eliminar</button></form>";
 }
-$ruta="./subida.$newArchivo[$]"
-if(isset($_POST["eliminar"])){
 
-unlink("./subida/");
 
-    
-}
+
+
 
 
 ?>
