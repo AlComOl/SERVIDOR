@@ -16,7 +16,7 @@
 if(isset($_POST["boton"])){
 
 $_POST["boton"];
-$dir_subida =  __DIR__ . '/subida/';//se pone esto porque el directorio esta dentro de docker trabajando con windows
+$dir_subida = './subida/';//se pone esto porque el directorio esta dentro de docker trabajando con windows
 $fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
 
 //basename: muestra el nombre del fichero con la extensión
