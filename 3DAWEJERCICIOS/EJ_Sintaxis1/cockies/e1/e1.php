@@ -1,10 +1,23 @@
 <?php
-     
+if(!isset($_POST['contador'])){
+   $visitas=0;
+}else{
+    $visitas=$_POST['contador'];
+    
+}
+    
+$visitas++;
+setcookie("visitas", $visitas, time() + 3600*24*30);
+echo"<h3>Visitas: " . $visitas . " </h3>";
+
+
+
             if(isset($_COOKIE['Alvaro'])){
-                 echo"<div style='background-color:blue'>Welcome primer ejercicio de Cockies</h1></div>";
-                 
+                 echo"<div style='background-color:blue'>Bienvenido</h1></div>";
+              
+                
                 }else{ 
-               setcookie("Alvaro", 1, time() + 30);  
+            //    setcookie("Alvaro", 1, time() + 10);  
                echo"<div style='background-color:yellow'>Welcome primer ejercicio de Cockies</h1></div>"; 
 
             }
@@ -12,6 +25,9 @@
             if(isset($_POST['eliminar'])){
                 unset($_COOKIE['Alvaro']);
             }
+
+
+         
      ?>
 <!DOCTYPE html>
 <html lang="en">

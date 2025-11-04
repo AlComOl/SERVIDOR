@@ -60,5 +60,6 @@ if(isset($_POST["Enviar"])){
 $archivo=array_slice(scandir("./subir"),2);
 
  foreach ($archivo as $key => $value) {
-  echo"<form method='POST'><img src='./$value'>$key  <button type='submit' name='eliminar' id=''value='$key'>Eliminar</button></form>";
+  echo"<form method='POST'><img src='subir/$value'> <button type='submit' name='eliminar' value='$key'>Eliminar</button></form>";
+
 }
