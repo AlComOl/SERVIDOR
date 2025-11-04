@@ -20,8 +20,12 @@ if(isset($_POST["Enviar"])){
     
     
 }else if(isset($_POST["eliminar"])){
-
-     $posicion=$_POST["eliminar"];
+       $posicion=$_POST["eliminar"];
+       $archivo=scandir($dir_subida);//el scandir lo recorre y mete dentro del array nuevo
+       $newArchivo=array_slice($archivo,2);
+       $ruta="./subir/".$newArchivo[$posicion];
+       unlink($ruta);
+  
 
 print "</pre>";
 
@@ -49,8 +53,8 @@ print "</pre>";
 </html>
 
 <?php
-$archivo=scandir($dir_subida);//el scandir lo recorre y mete dentro del array nuevo
-$newArchivo=array_slice($archivo,2);
+
+ $newArchivo=array_slice(scandir("./subir/",2));
 
  foreach ($newArchivo as $key => $value) {
   echo"<form method='POST'><img src='./$value'>$key  <button type='submit' name='eliminar' id=''value='$value'>Eliminar</button></form>";
@@ -60,6 +64,3 @@ $newArchivo=array_slice($archivo,2);
 
 
 
-$ruta="./subir/$newArchivo[$posicion]";
-
-unlink($ruta);
