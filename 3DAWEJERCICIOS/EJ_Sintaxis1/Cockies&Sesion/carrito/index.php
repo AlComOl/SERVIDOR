@@ -22,20 +22,31 @@
 <?php
 
 
-if(isset($_POST['Anadir']))){
+if(isset($_POST['Anadir'])){
 
    
         $producto=$_POST['producto'];
         $quantity=$_POST['quantity'];
 
+    if(isset( $_SESSION["cesta"])){
 
-        $_SESSION["cesta"][$producto]=$quality;
+        //comprobar si existe el producto y añadorlo de otra manera para no machacar el array
 
+            $_SESSION['cesta'][$producto]
 
-        foreach($productosArray as $key => $value){
-            if($key['producto']===$producto){
-                $value+=$quantity;
-            }
+        // $_SESSION["cesta"][$producto]=$quantity;
+
+        print_r($_SESSION['cesta']);
+
+    }else{
+
+        $_SESSION["cesta"][$producto]=$quantity;
+
+    }
+        // foreach($productosArray as $key => $value){
+        //     if($key['producto']===$producto){
+        //         $value+=$quantity;
+        //     }
         }
 
 
@@ -47,22 +58,22 @@ if(isset($_POST['Anadir']))){
 
 
 
-        print_r($productosArray);
+        // print_r($productosArray);
 
-}else{
-    $productosArray=[];
+        else{
+            // $productosArray=[];
 
-         $producto=$_POST['producto'];
-         $quantity=$_POST['quantity'];
-
-
-           $productosArray['producto']=$producto;
-
-            $productosArray['quantity']=$quantity;
+            //     $producto=$_POST['producto'];
+            //     $quantity=$_POST['quantity'];
 
 
-         
-}
+            //     $productosArray['producto']=$producto;
+
+            //         $productosArray['quantity']=$quantity;
+
+
+                
+        }
 
 
 
