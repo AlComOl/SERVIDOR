@@ -1,5 +1,11 @@
 <?php
+session_start();
 
+if($_SESSION['incorrecto']===true){
+
+    echo "<h5 style='background-color:red; color:white; padding:5px;'>Usuario o password incorrecto</h5>";
+
+    }
 ?>
 
 
@@ -23,7 +29,7 @@
             justify-content: center;    /* centra horizontalmente */
             align-items: center;        /* centra verticalmente */
             height: 30vh;   
-            width: 30vh;           /* opcional: altura de la pantalla */
+            width: 50vh;           /* opcional: altura de la pantalla */
             border: 1px solid #000;
             background-color: lightblue;     /* solo para ver el contenedor */
         }
