@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-if($_SESSION['incorrecto']===true){
+if(isset($_SESSION['incorrecto'])){
 
-    echo "<h5 style='background-color:red; color:white; padding:5px;'>Usuario o password incorrecto</h5>";
+    echo "<h5 style='background-color:red; padding:5px;'>Usuario o password incorrecto</h5>";
 
+    }
+
+if(isset($_SESSION['vacio'])){
+         echo "<h5 style='background-color:red; padding:5px;'>Usuario o password VACIOS</h5>";
     }
 ?>
 
