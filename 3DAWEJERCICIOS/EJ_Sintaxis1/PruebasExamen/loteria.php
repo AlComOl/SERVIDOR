@@ -2,6 +2,8 @@
 session_start();
 // $_SESSION['premios']=[1000,2000,3000,4000,5000];
 // $acumulados=$_SESSION['premios'];
+$tiradas=0;
+
 
 if(!isset($_SESSION['premiados'])){
 
@@ -23,19 +25,23 @@ if(!isset($_SESSION['premiados'])){
      if(isset($_POST['numeros'])){
 
           if(!isset($_SESSION['premios'][0])) {
-              $_SESSION['premios'] = [0,0,0,0,0];
+              $_SESSION['premios'] = [0];
         }
 
 
         foreach ($_SESSION['premiados'] as $numeros) {
             if($numeros==$_POST['numeros']){
+
+                echo"paso por ahi";
            
                 $_SESSION['premios'][0]+=1000;
+
+                print_r( $_SESSION['premios'][0]);
             }
         }
  
 
-}
+    }
 
     
     $Premiados=implode(",",$_SESSION['premiados']);   
@@ -44,7 +50,50 @@ if(!isset($_SESSION['premiados'])){
 }
 
 
- $premiosAcumulados=$_SESSION['premios'][0];
+if(isset($_POST['cancelar'])){
+    session_destroy();
+    
+}
+
+
+if(!isset($premiosAcumulados)){
+
+    $premiosAcumulados=0;
+}
+
+if(!isset($_SESSION['contador'])){
+    $_SESSION['contador']=0;
+}
+
+
+
+if(isset($_POST['numeros'])){
+
+      $_SESSION['contador']++;
+
+      $tiradas=$_SESSION['contador'];
+
+}
+
+if(!isset($_SESSION['premios'])){
+ $premiosAcumulados=0;
+
+}else{
+   $premiosAcumulados=$_SESSION['premios'][0];
+}
+
+if($_SESSION['contador']===5){
+    echo"<h1 style='color:red';>El juego ha terminado </h1>";
+    echo"<h2>PREMIO $premiosAcumulados EUROS</h2>";
+}
+
+if(!isset($_SESSION['premiados'])){
+    $Premiados=0;
+}
+
+
+
+ 
 
 
 
@@ -52,12 +101,11 @@ echo" <div class='container'>";
 echo" <img src='./Primitiva.jpg'>";
 echo" </div>";
 
-echo"Numeros Premiados";
-echo $Premiados ;
-echo"<h4 style='color blue'>PREMIOS ACUMULADOS: </h4>";
- echo"$premiosAcumulados";
- print_r($_SESSION['premios']);
-echo"<h4 style='color blue'>TIRADAS: </h4>";
+echo"<h4>Numeros Premiados:  $Premiados </h4>";
+
+echo"<h4 style='color:red'>PREMIOS ACUMULADOS: $premiosAcumulados</h4>";
+
+echo"<h4 style='color:blue'>TIRADAS: $tiradas </h4>";
 
 $numeros=0;
   echo"<table>";
@@ -70,7 +118,7 @@ for ($i=0; $i <= 4; $i++) {
      echo"<td>";
 }
 echo"</table>";
-echo"<form method='post'><button>Cancelar</button></form>";
+echo"<form method='post'><button name='cancelar'>Cancelar</button></form>";
 
 ?>
 
