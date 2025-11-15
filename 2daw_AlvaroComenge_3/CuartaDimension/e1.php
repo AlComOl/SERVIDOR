@@ -88,8 +88,8 @@ echo"</table>";
 
         table{
             position: absolute;
-            height: 500px;
-            right: 1000px;
+            height: 100px;
+            right: 100px;
             
         }
    
