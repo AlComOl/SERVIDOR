@@ -1,20 +1,71 @@
 <?php
+session_start();
+$left=0;
+$top=0;
+
+//pared 
 echo"<table>";
 for ($i=0; $i <= 1; $i++) {
     echo"<tr>";
     for ($z=0; $z <= 1; $z++) { 
         echo"<td></td>";
     }
-    echo"</td>";
 }
 echo"</table>";
 
 
-if(isset($_POST['AI'])){
 
-    $_SESSION['AI'];
+if(!isset($_SESSION['pelotas'])){
+
+    $_SESSION['pelotas']=[];
+
+
+
+
+}else{
+
+
+if(isset($_POST['borrar'])){
+  session_destroy();
+}  
+
+ if(isset($_POST['AI'])){
+
+    array_push($_SESSION['pelotas'],['left'=>$left=rand(10,150),'top'=>$top=rand(10,150)]);
+
+   
+ }  
+ 
+ if(isset($_POST['BI'])){
+
+    array_push($_SESSION['pelotas'],['left'=>$left=rand(10,150),'top'=>$top=rand(155,300)]);
+
+ }
+
+ if(isset($_POST['AD'])){
+
+     array_push($_SESSION['pelotas'],['left'=>$left=rand(150,300),'top'=>$top=rand(10,150)]);
+
+ }
+
+ if(isset($_POST['BD'])){
+
+    array_push($_SESSION['pelotas'],['left'=>$left=rand(150,300),'top'=>$top=rand(155,300)]);
+
+ }
+//pelotas
+foreach ($_SESSION['pelotas'] as $key => $value) {
+    $top=$value["top"];
+    $left=$value["left"];
+    
+    echo"<div class='rojo' style='top:{$top}px; left:{$left}px'></div>";
+ }
+ 
 
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,12 +85,12 @@ if(isset($_POST['AI'])){
             height: 150px;
         }
         .rojo{
-            blackground-color:red;
+            background-color:red;
             position:absolute;
             height:10px;
             width:10px;
             border-radius:50%;
-            top:opx;
+            top:0px;
             left:0px
         }
 

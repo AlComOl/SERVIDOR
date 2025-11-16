@@ -116,6 +116,7 @@ echo"</table>";
     <title>Loteria</title>
 </head>
 <style>
+    
     table{
         border:2px solid black;
     }
@@ -130,6 +131,7 @@ echo"</table>";
         border:2px solid black;
         height: 40px;
         width: 60px;
+        margin:10px;
 
     }
     </style>
