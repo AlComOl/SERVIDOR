@@ -18,16 +18,15 @@ if(!isset($_SESSION['juego'])){
 
 }else{
 
-    // for ($i=0; $i <9 ; $i++) { 
-    //     for ($x=0; $x < 6; $x++) { 
+ 
 
 
             if(isset($_POST['izq'])){
               $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']] = 0;
-              $_SESSION['col']=$_SESSION['col']-1;
+              $_SESSION['col'] = $_SESSION['col']-1;
               if ($_SESSION['col'] < 0) {
                   $_SESSION['col'] = 4; // columna máxima
-}
+                }
               $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1;
              
             }
@@ -62,31 +61,8 @@ if(!isset($_SESSION['juego'])){
             $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1;  
             
         }
-        if(isset($_POST['reset'])){
-            
+     
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        }
-//     }
-    
-   
-
-// }
-
-
-
-
 
 
 echo"<table>";
