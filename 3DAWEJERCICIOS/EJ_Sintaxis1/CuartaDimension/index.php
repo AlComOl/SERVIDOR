@@ -39,9 +39,7 @@ if(!isset($_SESSION['juego'])){
             $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1; 
               
 
-
-             
-                
+ 
             }
             if(isset($_POST['der'])){
               $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']] = 0;
@@ -52,15 +50,15 @@ if(!isset($_SESSION['juego'])){
               $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1;
             
             }
-        if(isset($_POST['abaj'])){
-           $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']] = 0;
-           $_SESSION['fila']=$_SESSION['fila']+1;
-             if ($_SESSION['fila'] > 8) {
-                    $_SESSION['fila'] = 0; // columna máxima
-             }
-            $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1;  
-            
-        }
+            if(isset($_POST['abaj'])){
+              $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']] = 0;
+              $_SESSION['fila']=$_SESSION['fila']+1;
+                if ($_SESSION['fila'] > 8) {
+                            $_SESSION['fila'] = 0; // columna máxima
+                    }
+                    $_SESSION['juego'][$_SESSION['fila']][$_SESSION['col']]=1;  
+                    
+            }
      
         }
 
