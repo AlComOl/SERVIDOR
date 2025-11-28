@@ -134,3 +134,68 @@ echo"<h3>Una función que concatene todos los parámetros recibidos separándolo
 print(concatenar(34,67,56,34,34,67,8));
 
 
+
+echo"<h3>Añade las siguientes funciones:</br>";
+
+   echo"<h3> digitos(int \$num): int → devuelve la cantidad de dígitos de un número.</br>";
+
+   function digitos(int $n){
+
+   $stng=(string)$n;
+
+   $tam=strlen($stng);
+
+    return $tam;
+
+   }
+
+    print(digitos(12359,67));
+
+    echo"<br><br>";
+
+   echo"  digitoN(int \$num, int \$pos): int → devuelve el dígito que ocupa, empezando por la izquierda, la posición \$pos.";
+    
+   echo"<br>";
+   
+   function digitoN($num , $cant){
+    $res=(string)$num;
+    return $n=$res[$cant-1];
+   }
+   print(digitoN(1234,3));
+
+echo"<br><br>";
+   echo"  quitaPorDetras(int \$num, int \$cant): int → le quita por detrás (derecha) \$cant dígitos.";
+
+   function quitaPorDetras(int $num, int $cant){
+
+   
+    $str=(string)$num;
+    $tam=strlen($str);
+
+    $digitosRest=$tam-$cant;
+
+
+    for ($i=0; $i <$digitosRest; $i++) { 
+
+      $salida.=$str[$i];  
+
+    }
+ 
+
+     return $salida;
+   }
+    echo"<br>";
+   print(quitaPorDetras(123433304,2));
+
+   echo"<br> <br>";
+
+
+   echo"  quitaPorDelante(int \$num, int \$cant): int → le quita por delante (izquierda) \$cant dígitos.";
+   
+
+
+
+   echo" Para probar las funciones, haz uso tanto de paso de argumentos posicionales como argumentos con nombre.";
+   echo"<br> <br>";
+
+
