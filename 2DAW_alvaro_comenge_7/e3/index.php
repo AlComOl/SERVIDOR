@@ -41,7 +41,7 @@ if (isset($_POST["tam"])) {
         echo "<p style='color:red'>Pon un número entre 1 y 25</p>";
     } else {
 
-        $mitad = ($tam - 1) / 2;
+        $mitad =(int) ($tam - 1) / 2;
 
         for ($i=0; $i<$tam; $i++) {
             for ($a=0; $a<$tam; $a++) {

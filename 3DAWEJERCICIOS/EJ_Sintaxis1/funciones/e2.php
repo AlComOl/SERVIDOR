@@ -1,8 +1,8 @@
 <?php
 
-// Crea las siguientes funciones:
+echo"<h3> Crea las siguientes funciones:</h3>";
 
-// Una función que averigüe si un número es par: esPar(int $num): bool
+echo"<h3> Una función que averigüe si un número es par: esPar(int \$num): bool. <br> </h3>";
 
 function esPar(int $num){
     if($num%2==0){
@@ -17,8 +17,8 @@ print(esPar(2));
 
 echo"<br>";
 
-// Una función que devuelva un array de tamaño $tam con números aleatorios comprendido entre
-//  $min y $max : arrayAleatorio(int $tam, int $min, int $max) : array
+echo"<h3>Una función que devuelva un array de tamaño \$tam con números aleatorios comprendido entre
+  \$min y \$max : arrayAleatorio(int \$tam, int \$min, int \$max) : array </h3>";
 
 
 function tamano(int $tam, int $min,int $max){
@@ -37,8 +37,8 @@ print_r(tamano(5,2,10));
 
 echo"<br>";
 
-// Una función que reciba un $array por referencia y devuelva la cantidad 
-// de números pares que hay almacenados: arrayPares(array &$array): int
+echo"<h3> Una función que reciba un \$array por referencia y devuelva la cantidad 
+ de números pares que hay almacenados: arrayPares(array &\$array): int </h3>";
 
 function numPares(array &$array){
     $count=0;
@@ -50,9 +50,8 @@ function numPares(array &$array){
         }
         
     }
-    $array1=[];
-    array_push($array1,$count);
-    return $array1;
+   
+    return $count;
 }
 
 
@@ -60,31 +59,78 @@ $array2=[2,3,5,6,7,8,89,8,56,3,23];
 
 print_r(numPares($array2));
 
+echo"<h3>PARÁMETROS POR DEFECTO / OPCIONALES
 
-// Crea las siguientes funciones:
-// Una función que devuelva el mayor de todos los números recibidos como 
-// parámetros: function mayor(): int. Utiliza las funciones func_get_args(),
-// etc... No puedes usar la función max().
+Permiten asignar valores en la declaración, y posteriormente, dejar el argumento en blanco.</h3>";
 
-function mayor():int{
-    if(func_get_arg()>)
 
+function obtenerNombre($nombre = "Julio") {
+    echo "mi nombre es $nombre";
 }
+echo"<h2>obtenerNombre();</h2>";
+obtenerNombre();
+echo"<h2> obtenerNombre(Pepe)</h2>";
+echo "<br/>";
 
-echo mayor(4, 7, 2, 9, 1);  // debería imprimir 9
-echo mayor(4, 7, 2, 9, 1);  // debería imprimir 9
-return $mayor;
-$mayor = $arrayArgs[0];  // inicializamos con el primero
-for ($i = 1; $i < $cantidad; $i++) {
-       // comparar $arrayArgs[$i] con $mayor
-//     // si $arrayArgs[$i] > $mayor, actualizar $mayor
-// }
-// Inicializar una variable para el mayor
+obtenerNombre("Pepe");
 
-// Piensa así: para saber cuál es el mayor, podemos:
 
-// Tomar como referencia el primer elemento de $arrayArgs como candidato inicial al mayor.
 
-// Luego recorrer los demás y comparar: si encontramos uno mayor, lo guardamos como nuevo mayor.
 
-// Ejemplo de idea conceptual:
+
+echo"<h3> Crea las siguientes funciones:
+ Una función que devuelva el mayor de todos los números recibidos como 
+ parámetros: function mayor(): int. Utiliza las funciones func_get_args(),
+ etc... No puedes usar la función max().</h3>";
+echo"func_num_args() recoge todos los elementos que pasas a la funcion en un array";
+echo"<br>";
+echo"func_num_args() obtiene la cantidad de parametros recibidos";
+
+
+ function mayor(){
+
+     $args=func_get_args();
+     $mayor=0;
+ 
+ 
+    if(func_num_args() == 0){
+        return false;
+
+    }else{
+
+          foreach ($args as $num) {
+             if($num>$mayor){
+                $mayor=$num;
+            }  
+          }
+    }
+     return $mayor;
+ }
+
+$res=mayor(1,22,32,4,34,6,7);
+
+echo"<br><br><br>";
+
+
+print($res);
+
+
+
+
+echo"<h3>Una función que concatene todos los parámetros recibidos separándolos con un espacio:
+ function concatenar(...\$palabras) : string. Utiliza el operador ....</h3>";
+
+ function concatenar(... $palabras){
+    $cadena="";
+    if($palabras==0){
+        return false;
+    }else{
+        foreach ($palabras as $palabra) {
+            $cadena.=$palabra." ";
+        }
+    }
+    return $cadena;
+ }
+print(concatenar(34,67,56,34,34,67,8));
+
+
