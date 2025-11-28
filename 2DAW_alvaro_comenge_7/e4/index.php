@@ -16,7 +16,7 @@ if(isset($_POST['jugar'])){
     if($_SESSION['monedas'] > 0){
         $_SESSION['monedas']--;
         for($i=0; $i<3; $i++){
-            $frutas[] = rand(1,7);
+            $frutas[] = rand(1,5);
         }
 
        

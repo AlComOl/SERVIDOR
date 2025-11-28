@@ -66,19 +66,17 @@ print_r(numPares($array2));
 // parámetros: function mayor(): int. Utiliza las funciones func_get_args(),
 // etc... No puedes usar la función max().
 
-function mayor(){
+function mayor():int{
     if(func_get_arg()>)
 
 }
-1️⃣ Declarar la función
 
-Según tus apuntes, la firma sería:
 echo mayor(4, 7, 2, 9, 1);  // debería imprimir 9
 echo mayor(4, 7, 2, 9, 1);  // debería imprimir 9
 return $mayor;
 $mayor = $arrayArgs[0];  // inicializamos con el primero
 for ($i = 1; $i < $cantidad; $i++) {
-//     // comparar $arrayArgs[$i] con $mayor
+       // comparar $arrayArgs[$i] con $mayor
 //     // si $arrayArgs[$i] > $mayor, actualizar $mayor
 // }
 // Inicializar una variable para el mayor
