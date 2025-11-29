@@ -171,7 +171,7 @@ echo"<br><br>";
    
     $str=(string)$num;
     $tam=strlen($str);
-
+    $salida=0;
     $digitosRest=$tam-$cant;
 
 
@@ -186,14 +186,31 @@ echo"<br><br>";
    }
     echo"<br>";
    print(quitaPorDetras(123433304,2));
+     echo" Llamada por nombre ";  quitaPorDetras(num: 1234, cant: 2);
 
    echo"<br> <br>";
 
 
-   echo"  quitaPorDelante(int \$num, int \$cant): int → le quita por delante (izquierda) \$cant dígitos.";
+   echo"quitaPorDelante(int \$num, int \$cant): int → le quita por delante (izquierda) \$cant dígitos.";
+     echo"<br> <br>";
    
+   function quitaPorDelante(int $num, int $cant){
+
+    $s=(string)$num;
+  
+
+    $res=substr($s,$cant);
+
+    return $res;
+    
+   } 
 
 
+   echo"Llamada por posición  => "; echo quitaPorDelante(1234,1);
+
+   echo" Llamada por nombre => ";  echo quitaPorDelante(num: 1234, cant: 1);
+
+  echo"<br> <br>";
 
    echo" Para probar las funciones, haz uso tanto de paso de argumentos posicionales como argumentos con nombre.";
    echo"<br> <br>";
