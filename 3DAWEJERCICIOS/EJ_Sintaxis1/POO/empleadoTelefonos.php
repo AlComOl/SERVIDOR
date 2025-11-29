@@ -9,6 +9,7 @@ class Empleado{
     private $nombre;
     private $apellido;
     private $sueldo;
+    private $numTelefono =[];
    
 
     /**
@@ -78,6 +79,25 @@ class Empleado{
 
         }
 
+
+     public function anyadirTelefono(int $telefono) : void{
+
+        $this->numTelefono[]=$telefono;
+        
+     }
+
+     public function listarTelefonos(): string{
+        $res="";
+        foreach($this->numTelefono as $tel){
+        
+          $res.=",".$tel;
+        }
+        return $res;
+     }
+
+     public function vaciarTelefonos(): void{
+        $this ->numTelefono=[];
+     }
     }
 
 
@@ -98,5 +118,25 @@ $persona1 -> setSueldo(34333);
 
 
  echo $persona1 -> debePagarImpuestos();
+
+
+  $persona1 -> anyadirTelefono('679345696');
+  $persona1 -> anyadirTelefono('2540509');
+
+  echo"<br><br>";
+
+  echo $persona1 -> listarTelefonos() ;
+
+  echo"<br><br>";
+
+  $persona1 -> vaciarTelefonos();
+
+  echo $persona1 -> listarTelefonos() ;
+
+
+
+
+
+
 
 ?>
