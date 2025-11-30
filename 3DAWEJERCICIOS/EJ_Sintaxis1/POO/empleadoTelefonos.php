@@ -92,7 +92,7 @@ class Empleado{
         
           $res.=",".$tel;
         }
-        return $res;
+        return "Los teléfonos del empleados son ". $res;
      }
 
      public function vaciarTelefonos(): void{
