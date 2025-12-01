@@ -22,17 +22,17 @@ class Empleado{
             }else{
                   return "No debe pagar impuestos";
             }
-          
-
-        }
+      }
 }
 
-//el self se aplica para coger una constante 
+//el self se aplica para coger una constante , las constantes de clase no usan el $this
 
 
 $pers1=new Empleado('jose','martinez',5222);
 
 echo $pers1 -> getNombreCompleto();
+
+echo"<br>";
 
 echo $pers1 -> debePagarImpuestos();
 
