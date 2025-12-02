@@ -1,13 +1,14 @@
 <?php
-include("Location:./conectaLogica.php");
+// include("Location:./conectaLogica.php");
 
 echo"<table>";
 for ($i=0; $i < 6 ; $i++) {
     echo"<tr>";
 
-    for ($i=0; $i < 6; $i++) { 
+    for ($z=0; $z < 3; $z++) { 
         echo"<td><td>";
     }
+    echo"</tr>";
 }
 echo"</table>"
 ?>
