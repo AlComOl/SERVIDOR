@@ -17,8 +17,12 @@ class Conecta{
      
     }
 
-    function insertarColumna(){
-      if(isset($_POST['']))
+    function insertarFila(){
+      if(isset($_POST['1'])){
+        if($jugador==1){
+            $juegoConecta[][]=1;
+        }
+      }
     }
 
 }
