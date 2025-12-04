@@ -2,7 +2,7 @@
 
 class Conecta{
  
-    private  $juegoConecta=[];
+    private  array $juegoConecta;
     private int $jugador;
 
     public function __construct() {
@@ -17,19 +17,26 @@ class Conecta{
      
     }
 
-    function insertarFila(){
-      if(isset($_POST['1'])){
-        if($jugador==1){
-            $juegoConecta[][]=1;
-        }
-      }
+    // function turno(){}
+    
+
+    function insertarFila($columna){
+            $this->juegoConecta[$columna][]=$this->jugador; 
     }
 
 }
 
 $NuevoJuego = new Conecta();
 
-echo $NuevoJuego -> verJugador();
+//echo $NuevoJuego -> verJugador();
+
+$NuevoJuego->insertarFila(1);
+$NuevoJuego->insertarFila(2);
+$NuevoJuego->insertarFila(3);
+$NuevoJuego->insertarFila(2);
+
+
+
 
 
 //insetar - columna

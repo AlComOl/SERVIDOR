@@ -1,6 +1,12 @@
 <?php
 include("./logicaConecta.php");
 
+if(isset($_POST["columna"])){
+
+    $conecta->insertarFila($_POST["columna"]);
+
+}
+print_r($NuevoJuego);
 echo"<table>";
 for ($i=0; $i < 6 ; $i++) {
     echo"<tr>";
@@ -8,9 +14,12 @@ for ($i=0; $i < 6 ; $i++) {
     for ($z=0; $z < 6; $z++) { 
         echo"<td></td>";
     }
-    echo"</tr>";
+     echo"</tr><div><form><button type='submit' name='columna' value='$i'>➕</button></form></div>";  
 }
-echo"</table>"
+
+echo"</table>";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,24 +53,18 @@ td {
 }
 
 button {
-   display: column;
+   display: flex;
    margin-top: 560px;
-
-    
 }
+
 
 button:hover {
     background-color: #ccc;
 }
 </style>
 <body>
-    <div class='botones'>
-        <button name="1"value="">➕</button>
-        <button name="2"value="">➕</button>
-        <button name="3"value="">➕</button>
-        <button name="4"value="">➕</button>
-        <button name="5"value="">➕</button>
-        <button name="6"value="">➕</button>
-    </div>
+
+
+
 </body>
 </html>
