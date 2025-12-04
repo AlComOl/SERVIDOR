@@ -1,18 +1,32 @@
 <?php
+
 class Conecta{
  
-    private $juegoConecta=[[],[],[],[],[],[]];
-    private $jugador=rand(1,2);
+    private  $juegoConecta=[];
+    private int $jugador;
 
-    public function __constructor(){
+    public function __construct() {
 
-        $this->$juegoConecta;
-        $this->$jugador;
+        $this->juegoConecta=[[],[],[],[],[],[]];
+        $this->jugador=rand(1,2);
 
     }
 
+    function verJugador(){
+      return $this ->jugador;
+     
+    }
+
+    function insertarColumna(){
+      if(isset($_POST['']))
+    }
 
 }
+
+$NuevoJuego = new Conecta();
+
+echo $NuevoJuego -> verJugador();
+
 
 //insetar - columna
 
