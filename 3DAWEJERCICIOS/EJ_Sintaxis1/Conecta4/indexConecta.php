@@ -6,13 +6,14 @@ if(isset($_POST['eliminar'])){//borrar $de sesion
     session_destroy();
 }
 
-if(!isset($_SESSION['juego'])){//Si no esiste la sesion la instancia dentro de la $sesion
-    $_SESSION['juego']=new Conecta();//lo serializa y lo mete todo  dentro del 
+if(!isset($_SESSION['juego'])){//Si no esiste la sesion la instancia dentro de la $sesion(juego)
+    $_SESSION['juego']=$NuevoJuego;//lo serializa y lo mete todo  dentro del 
 }
-$NuevoJuego=$_SESSION['juego']; //unserializarse
+
 
 if(isset($_POST["columna"])){
-    $NuevoJuego->insertarFila($_POST["columna"]);
+    $NuevoJuego=$_SESSION['juego'];
+      $NuevoJuego->insertarFila($_POST["columna"]);
       $_SESSION['juego'] = $NuevoJuego;
 
 }

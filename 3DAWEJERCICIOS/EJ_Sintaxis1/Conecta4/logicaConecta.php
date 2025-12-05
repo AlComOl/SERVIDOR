@@ -12,21 +12,27 @@ class Conecta{
 
     }
 
-    function verJugador(){
+    public function verJugador(){
       return $this ->jugador;
      
     }
 
-    // function turno(){}
+    private function turno(){
+
+      return ($this->jugador==1)?$this->jugador=2:$this->jugador=1;
+
+    }
     
 
-    function insertarFila($columna){
-            $this->juegoConecta[$columna][]=$this->jugador; 
+    public function insertarFila($columna){
+
+       print_r($this->jugador);
+        $this->juegoConecta[$columna][]=$this->turno();
     }
 
 }
 
-// $NuevoJuego = new Conecta();
+$NuevoJuego = new Conecta();
 
 // echo $NuevoJuego -> verJugador();
 
