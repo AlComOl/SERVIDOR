@@ -1,7 +1,7 @@
 <?php
-$dsn = 'mysql:dbname=testdb;host=db:3306';
-$usuario = 'user';
-$contrasena = 'pass123';
+$dsn = 'mysql:dbname=dbname;host=db:3306';
+$usuario = 'test';
+$contrasena = 'test';
 
 try {
     $conexion = new PDO($dsn, $usuario, $contrasena);
@@ -11,5 +11,9 @@ try {
     echo 'Falló la conexión: ' . $e->getMessage();
 }
 
+
+$sql = "INSERT INTO miTabla (nombre, email, edad) VALUES ('Julio', 'julio@gmail.com', '65')";
+$conexion->exec($sql);
+echo "Nuevo registro creado correctamente";
 
 ?>
