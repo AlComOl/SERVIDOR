@@ -35,6 +35,34 @@ function tamano(int $tam, int $min,int $max){
 
 print_r(tamano(5,2,10));
 
+
+echo"<br>";
+
+echo"SOLUCIÓN JULIO";
+
+echo"<br>";
+
+function arrayAleatorio(int $tam, int $min, int $max): array
+{
+
+    $nuevo = [];
+
+    for ($i = 0; $i < $tam; $i++) {
+        $nuevo[] = rand($min, $max);
+    }
+
+    return $nuevo;
+}
+
+
+$nuevoArray = arrayAleatorio(6, 2, 70);
+
+var_dump($nuevoArray);
+
+echo "<br>";
+
+
+
 echo"<br>";
 
 echo"<h3> Una función que reciba un \$array por referencia y devuelva la cantidad 
@@ -58,6 +86,13 @@ function numPares(array &$array){
 $array2=[2,3,5,6,7,8,89,8,56,3,23];
 
 print_r(numPares($array2));
+
+
+echo"SOLUCION JULIO";
+
+
+
+
 
 echo"<h3>PARÁMETROS POR DEFECTO / OPCIONALES
 
