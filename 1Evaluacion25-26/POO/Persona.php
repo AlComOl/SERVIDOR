@@ -179,7 +179,7 @@ class Persona{
 class Empleado extends Persona{
 
     private $telefonos=[];
-    const SUELDO_TOPE=5000;
+    private const SUELDO_TOPE=5000;
 
     
     public function __construct(protected string $nombre,protected string $apellido,private int $sueldo) {
@@ -191,10 +191,6 @@ class Empleado extends Persona{
     
     }
     
-
-
-
-
     public function debePagarImpuestos():bool{
         $pagar=$this->sueldo > self::SUELDO_TOPE ? true :false;
 
