@@ -35,17 +35,45 @@ for ($s=0; $s < 6; $s++) {
         <button type='submit' name='eliminar' value=''>Empezar Partida</button>
      </form>"; 
 
+$tablero=$NuevoJuego->getJuegoConecta();
+
+
 echo"<table>";
+
 for ($i=0; $i < 6 ; $i++) {
      echo"<tr>";
     for ($z=0; $z < 6; $z++) { 
-       echo"<td></td>";
-        
+
+      $cantidad = count($tablero[$z]);      // contar fichas en esta columna
+        $indice = $cantidad - (6 - $i);       // traducir fila visual a índice del array
+
+        if ($indice >= 0) {
+            // Hay ficha en esta posición
+            if ($tablero[$z][$indice] == 1) {
+                echo "<td style='background-color:red'></td>";
+            } else {
+                echo "<td style='background-color:blue'></td>";
+            }
+        } else {
+            // Celda vacía
+            echo "<td style='background-color:white'></td>";
+        }
     }
     echo"</tr>";
 }
 
+
 echo"</table>";
+
+
+
+
+if(isset($_SESSION['juego'])){
+
+
+}
+
+
 
 
 ?>
@@ -58,9 +86,7 @@ echo"</table>";
 </head>
 <style>
 body {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  
     min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
@@ -94,5 +120,4 @@ button:hover {
 
 
 
-</body>
 </html>

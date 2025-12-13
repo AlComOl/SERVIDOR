@@ -30,22 +30,12 @@ class Conecta{
         $this->juegoConecta[$columna][]=$this->turno();
     }
 
+    public function getJuegoConecta(){
+     return $this -> juegoConecta;
+    }
+
 }
 
 $NuevoJuego = new Conecta();
 
-// echo $NuevoJuego -> verJugador();
-
-// $NuevoJuego->insertarFila(1);
-// $NuevoJuego->insertarFila(2);
-// $NuevoJuego->insertarFila(3);
-// $NuevoJuego->insertarFila(2);
-
-
-
-
-
-
-
-//
 ?>
