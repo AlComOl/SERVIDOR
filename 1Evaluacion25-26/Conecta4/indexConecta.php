@@ -1,13 +1,14 @@
 <?php
 include("./logicaConecta.php");
 session_start();
+// $desbordar=$false;
 
 if(isset($_POST['eliminar'])){//borrar $de sesion
     session_destroy();
 }
 
 if(!isset($_SESSION['juego'])){//Si no esiste la sesion la instancia dentro de la $sesion(juego)
-    $_SESSION['juego']=$NuevoJuego;//lo serializa y lo mete todo  dentro del 
+    $_SESSION['juego']=$NuevoJuego;
 }
 
 
@@ -19,27 +20,36 @@ if(isset($_POST["columna"])){
 }
 
 
+
 echo"<br><br><br><br><br>";
 
 print_r($NuevoJuego);
 
-// echo"<br><br>";
+
+
+echo"<br><br><br><br><br>";
 
 
 if(isset($_SESSION['cantidad'])){
 $_SESSION['cantidad']=[];
 }
 
+//contar fichas antes de los botones para desabilitar
+$tablero=$NuevoJuego->getJuegoConecta();
+
+$_SESSION['cantidad']=[];
+for ($c=0; $c < 6; $c++) {
+    $_SESSION['cantidad'][$c]=count($tablero[$c]);  
+}
 
 
-echo"<br><br><br><br><br>";
+
 
 for ($s=0; $s < 6; $s++) {
 
-    $disabled = ($_SESSION['cantidad'][$s] >= 6) ? 'disabled' : ''; //tiene que estar dentro del bucle
-
+      $disabled = ($_SESSION['cantidad'][$s] >= 6) ? 'disabled' : '';//desabilita el boton
      echo"<form method='post'>
-        <button type='submit' name='columna' value='$s'<?php echo $disabled; ?>➕</button>
+    <button type='submit' name='columna' value='$s'  $disabled >➕</button>
      </form>"; 
 }
  echo"<form method='post'>
@@ -47,6 +57,8 @@ for ($s=0; $s < 6; $s++) {
      </form>"; 
 
 $tablero=$NuevoJuego->getJuegoConecta();
+
+$_SESSION['cantidad']=[];
 
 
 echo"<table>";
@@ -57,7 +69,7 @@ for ($i=0; $i < 6 ; $i++) {
 
       $cantidad = count($tablero[$z]);      // contar fichas en esta columna
         $indice = $cantidad - (6 - $i); // traducir fila visual a índice del array
-        $_SESSION['cantidad'][$z]=count($tablero[$z]);
+        $_SESSION['cantidad'][$z]=$cantidad;//comprobar desbordamiento
            
         if ($indice >= 0) {
             // Hay ficha en esta posición
@@ -76,24 +88,14 @@ for ($i=0; $i < 6 ; $i++) {
 }
 
 print_r($_SESSION['cantidad']);
-
-
- if($NuevoJuego->DesbordamientoColumna()){
-
-    "<buttontype='submit' name='columna' value='$s' $disabled></button>";
-            
- }
-
     
 echo"</table>";
 
+$tablero=$NuevoJuego->getJuegoConecta();
+
+echo $NuevoJuego->CompruebaHorizontal();
 
 
-
-if(isset($_SESSION['juego'])){
-
-
-}
 
 
 
@@ -136,6 +138,10 @@ form {
 
 button:hover {
     background-color: #ccc;
+}
+button{
+    height: 40px;
+    width: 80px;
 }
 </style>
 <body>

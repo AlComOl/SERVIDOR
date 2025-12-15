@@ -35,12 +35,65 @@ class Conecta{
      return $this -> juegoConecta;
     }
 
-    public function DesbordamientoColumna(){
-      foreach ($_SESSION['cantidad'] as $value) {
-        if($value>6){
-          return true;
+
+
+  
+
+ 
+
+public function CompruebaHorizontal() {
+    $tablero = $this->getJuegoConecta();
+
+    for ($fila = 0; $fila < 6; $fila++) {
+        $contador1 = 0;
+        $contador2 = 0;
+
+        for ($col = 0; $col < 6; $col++) {
+            // Comprobar si hay ficha en esta columna y fila
+            if (isset($tablero[$col][$fila])) {
+                if ($tablero[$col][$fila] === 1) {
+                    $contador1++;
+                    $contador2 = 0;
+                } elseif ($tablero[$col][$fila] === 2) {
+                    $contador2++;
+                    $contador1 = 0;
+                }
+            } else {
+               
+                $contador1 = 0;
+                $contador2 = 0;
+            }
+
+            // Comprobar ganador
+            if ($contador1 >= 4){
+              
+                return "Ha ganado el jugador 1";
+
+            } 
+            if ($contador2 >= 4){
+              return "Ha ganado el jugador 2";
+
+            } 
         }
-      }
+    }
+
+    return false; 
+}
+
+
+
+
+  public function CompruebaVertical(){
+
+  }
+
+  public function CompruebaDiagonalAscendente(){
+
+  }
+
+
+    public function CompruebaDiagonalDescendente(){
+    
   }
 
 
