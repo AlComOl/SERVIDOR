@@ -27,15 +27,27 @@ class Conecta{
     public function insertarFila($columna){
 
        print_r($this->jugador);
-        $this->juegoConecta[$columna][]=$this->turno();
+        array_unshift($this->juegoConecta[$columna], $this->turno());
+
     }
 
     public function getJuegoConecta(){
      return $this -> juegoConecta;
     }
 
+    public function DesbordamientoColumna(){
+      foreach ($_SESSION['cantidad'] as $value) {
+        if($value>6){
+          return true;
+        }
+      }
+  }
+
+
+
 }
 
 $NuevoJuego = new Conecta();
+
 
 ?>

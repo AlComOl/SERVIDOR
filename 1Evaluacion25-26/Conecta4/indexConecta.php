@@ -17,9 +17,18 @@ if(isset($_POST["columna"])){
       $_SESSION['juego'] = $NuevoJuego;
 
 }
+
+
 echo"<br><br><br><br><br>";
 
 print_r($NuevoJuego);
+
+// echo"<br><br>";
+
+
+if(isset($_SESSION['cantidad'])){
+$_SESSION['cantidad']=[];
+}
 
 
 
@@ -27,8 +36,10 @@ echo"<br><br><br><br><br>";
 
 for ($s=0; $s < 6; $s++) {
 
+    $disabled = ($_SESSION['cantidad'][$s] >= 6) ? 'disabled' : ''; //tiene que estar dentro del bucle
+
      echo"<form method='post'>
-        <button type='submit' name='columna' value='$s'>➕</button>
+        <button type='submit' name='columna' value='$s'<?php echo $disabled; ?>➕</button>
      </form>"; 
 }
  echo"<form method='post'>
@@ -45,14 +56,15 @@ for ($i=0; $i < 6 ; $i++) {
     for ($z=0; $z < 6; $z++) { 
 
       $cantidad = count($tablero[$z]);      // contar fichas en esta columna
-        $indice = $cantidad - (6 - $i);       // traducir fila visual a índice del array
-
+        $indice = $cantidad - (6 - $i); // traducir fila visual a índice del array
+        $_SESSION['cantidad'][$z]=count($tablero[$z]);
+           
         if ($indice >= 0) {
             // Hay ficha en esta posición
             if ($tablero[$z][$indice] == 1) {
                 echo "<td style='background-color:red'></td>";
             } else {
-                echo "<td style='background-color:blue'></td>";
+                echo "<td style='background-color:yellow'></td>";
             }
         } else {
             // Celda vacía
@@ -60,9 +72,19 @@ for ($i=0; $i < 6 ; $i++) {
         }
     }
     echo"</tr>";
+  
 }
 
+print_r($_SESSION['cantidad']);
 
+
+ if($NuevoJuego->DesbordamientoColumna()){
+
+    "<buttontype='submit' name='columna' value='$s' $disabled></button>";
+            
+ }
+
+    
 echo"</table>";
 
 
