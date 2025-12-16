@@ -26,8 +26,8 @@ class Conecta{
 
     public function insertarFila($columna){
 
-       print_r($this->jugador);
-        array_unshift($this->juegoConecta[$columna], $this->turno());
+       print_r("Jugador ".$this->jugador);
+        array_push($this->juegoConecta[$columna], $this->turno());
 
     }
 
@@ -44,24 +44,24 @@ class Conecta{
 public function CompruebaHorizontal() {
     $tablero = $this->getJuegoConecta();
 
-    for ($fila = 0; $fila < 6; $fila++) {
+    for ($f = 0; $f < 6; $f++) {
         $contador1 = 0;
         $contador2 = 0;
 
-        for ($col = 0; $col < 6; $col++) {
+        for ($c = 0; $c < 6; $c++) {
             // Comprobar si hay ficha en esta columna y fila
-            if (isset($tablero[$col][$fila])) {
-                if ($tablero[$col][$fila] === 1) {
+            if (isset($tablero[$c][$f])) {
+                if ($tablero[$c][$f] === 1) {
                     $contador1++;
-                    $contador2 = 0;
-                } elseif ($tablero[$col][$fila] === 2) {
+                    $contador2=0;
+                } elseif ($tablero[$c][$f] === 2) {
                     $contador2++;
-                    $contador1 = 0;
+                    $contador1= 0;
                 }
             } else {
                
-                $contador1 = 0;
-                $contador2 = 0;
+                $contador1= 0;
+                $contador2= 0;
             }
 
             // Comprobar ganador
@@ -84,6 +84,24 @@ public function CompruebaHorizontal() {
 
 
   public function CompruebaVertical(){
+    $tablero = $this->getJuegoConecta();
+
+    for ($f=0; $f < 6; $f++) {
+        $contador1 = 0;
+        $contador2 = 0;
+
+        for ($c=0; $c < 1; $c++) { 
+
+            if(isset($tablero[$f][$c])){
+                if($tablero[$f][$c]==1){
+
+                }
+
+            }
+            
+        } 
+        
+    }
 
   }
 

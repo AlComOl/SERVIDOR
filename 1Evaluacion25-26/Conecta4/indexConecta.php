@@ -1,17 +1,17 @@
 <?php
 include("./logicaConecta.php");
 session_start();
-// $desbordar=$false;
+
 
 if(isset($_POST['eliminar'])){//borrar $de sesion
     session_destroy();
 }
 
-if(!isset($_SESSION['juego'])){//Si no esiste la sesion la instancia dentro de la $sesion(juego)
+if(!isset($_SESSION['juego'])){//Si no existe la sesion la instancia dentro de la $sesion(juego)
     $_SESSION['juego']=$NuevoJuego;
 }
 
-
+//inerto ficha 
 if(isset($_POST["columna"])){
     $NuevoJuego=$_SESSION['juego'];
       $NuevoJuego->insertarFila($_POST["columna"]);
@@ -44,7 +44,7 @@ for ($c=0; $c < 6; $c++) {
 
 
 
-
+//Botones
 for ($s=0; $s < 6; $s++) {
 
       $disabled = ($_SESSION['cantidad'][$s] >= 6) ? 'disabled' : '';//desabilita el boton
@@ -52,6 +52,7 @@ for ($s=0; $s < 6; $s++) {
     <button type='submit' name='columna' value='$s'  $disabled >➕</button>
      </form>"; 
 }
+//boton reset
  echo"<form method='post'>
         <button type='submit' name='eliminar' value=''>Empezar Partida</button>
      </form>"; 
@@ -62,30 +63,25 @@ $_SESSION['cantidad']=[];
 
 
 echo"<table>";
-
-for ($i=0; $i < 6 ; $i++) {
-     echo"<tr>";
+//recorro de abajo arriba
+for ($i=5; $i >= 0 ; $i--) { 
+    echo"<tr>";
     for ($z=0; $z < 6; $z++) { 
-
-      $cantidad = count($tablero[$z]);      // contar fichas en esta columna
-        $indice = $cantidad - (6 - $i); // traducir fila visual a índice del array
-        $_SESSION['cantidad'][$z]=$cantidad;//comprobar desbordamiento
-           
-        if ($indice >= 0) {
-            // Hay ficha en esta posición
-            if ($tablero[$z][$indice] == 1) {
+        
+        // $i es el  índice 5 el tope, arriba
+        if (isset($tablero[$z][$i])) {
+            if ($tablero[$z][$i] == 1) {
                 echo "<td style='background-color:red'></td>";
             } else {
                 echo "<td style='background-color:yellow'></td>";
             }
         } else {
-            // Celda vacía
             echo "<td style='background-color:white'></td>";
         }
     }
     echo"</tr>";
-  
 }
+echo"</table>";
 
 print_r($_SESSION['cantidad']);
     
