@@ -18,6 +18,7 @@ class Conecta {
     }
 
     public function insertarFila($columna) {
+
         array_push($this->juegoConecta[$columna], $this->turno());
     }
 
@@ -36,8 +37,12 @@ class Conecta {
                     elseif ($tablero[$c][$f] === 2) { $contador2++; $contador1 = 0; }
                 } else { $contador1 = 0; $contador2 = 0; }
 
-                if ($contador1 >= 4) return "Ha ganado el jugador 1";
-                if ($contador2 >= 4) return "Ha ganado el jugador 2";
+                if ($contador1 >= 4){
+                  return "Ha ganado el jugador 1";
+                } 
+                if ($contador2 >= 4){
+                    return "Ha ganado el jugador 2";
+                } 
             }
         }
         return false;
@@ -54,8 +59,12 @@ class Conecta {
                     elseif ($tablero[$c][$f] === 2) { $contador2++; $contador1 = 0; }
                 } else { $contador1 = 0; $contador2 = 0; }
 
-                if ($contador1 >= 4) return "Ha ganado el jugador 1";
-                if ($contador2 >= 4) return "Ha ganado el jugador 2";
+                if ($contador1 >= 4){
+                     return "Ha ganado el jugador 1";
+                }
+                if ($contador2 >= 4){
+                     return "Ha ganado el jugador 2";
+                }
             }
         }
         return false;
@@ -75,8 +84,12 @@ class Conecta {
                     elseif ($tablero[$x][$y] === 2) { $contador2++; $contador1 = 0; }
                     else { $contador1 = 0; $contador2 = 0; }
 
-                    if ($contador1 >= 4) return "Ha ganado el jugador 1";
-                    if ($contador2 >= 4) return "Ha ganado el jugador 2";
+                    if ($contador1 >= 4){
+                        return "Ha ganado el jugador 1";
+                    } 
+                    if ($contador2 >= 4){
+                        return "Ha ganado el jugador 2";
+                    } 
 
                     $x++;
                     $y++;
@@ -100,8 +113,12 @@ class Conecta {
                     elseif ($tablero[$x][$y] === 2) { $contador2++; $contador1 = 0; }
                     else { $contador1 = 0; $contador2 = 0; }
 
-                    if ($contador1 >= 4) return "Ha ganado el jugador 1";
-                    if ($contador2 >= 4) return "Ha ganado el jugador 2";
+                    if ($contador1 >= 4){
+                        return "Ha ganado el jugador 1";
+                    } 
+                    if ($contador2 >= 4){
+                         return "Ha ganado el jugador 2";
+                    }
 
                     $x++;
                     $y--;
@@ -110,6 +127,13 @@ class Conecta {
         }
         return false;
     }
+
+    public function hayGanador() {
+        return $this->CompruebaHorizontal() ?: 
+            $this->CompruebaVertical() ?: 
+            $this->CompruebaDiagonalAscendente() ?: 
+            $this->CompruebaDiagonalDescendente();
+        }
 }
 
 $NuevoJuego = new Conecta();

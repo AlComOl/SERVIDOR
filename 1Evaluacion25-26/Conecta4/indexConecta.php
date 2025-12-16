@@ -11,7 +11,7 @@ if(!isset($_SESSION['juego'])){//Si no existe la sesion la instancia dentro de l
     $_SESSION['juego']=$NuevoJuego;
 }
 
-//inerto ficha 
+// inserto ficha 
 if(isset($_POST["columna"])){
     $NuevoJuego=$_SESSION['juego'];
       $NuevoJuego->insertarFila($_POST["columna"]);
@@ -20,14 +20,6 @@ if(isset($_POST["columna"])){
 }
 
 
-
-echo"<br><br><br><br><br>";
-
-print_r($NuevoJuego);
-
-
-
-echo"<br><br><br><br><br>";
 
 
 if(isset($_SESSION['cantidad'])){
@@ -42,27 +34,27 @@ for ($c=0; $c < 6; $c++) {
     $_SESSION['cantidad'][$c]=count($tablero[$c]);  
 }
 
-
+$ganador=$NuevoJuego->hayGanador();
 
 //Botones
-for ($s=0; $s < 6; $s++) {
-
-      $disabled = ($_SESSION['cantidad'][$s] >= 6) ? 'disabled' : '';//desabilita el boton
-     echo"<form method='post'>
-    <button type='submit' name='columna' value='$s'  $disabled >➕</button>
-     </form>"; 
+echo"<table>";
+echo"<div class='display'>";
+    for ($s=0; $s < 6; $s++) {
+        $disabled = ($_SESSION['cantidad'][$s] >= 6 || $ganador ) ? 'disabled' : '';//desabilita el boton
+        echo"<form method='post'>
+                <button  type='submit' name='columna' value='$s'  $disabled >⬇️</button>
+            </form>"; 
 }
-//boton reset
- echo"<form method='post'>
-        <button type='submit' name='eliminar' value=''>Empezar Partida</button>
-     </form>"; 
+//ganador
+
+
 
 $tablero=$NuevoJuego->getJuegoConecta();
 
 $_SESSION['cantidad']=[];
 
 
-echo"<table>";
+
 //recorro de abajo arriba
 for ($i=5; $i >= 0 ; $i--) { 
     echo"<tr>";
@@ -82,10 +74,16 @@ for ($i=5; $i >= 0 ; $i--) {
     echo"</tr>";
 }
 echo"</table>";
-
-print_r($_SESSION['cantidad']);
+echo"</div>";
+//boton reset
+echo"<div class='comienzo'>";
+        echo"<form method='post'>
+                <button type='submit' name='eliminar' value=''>Empezar Partida</button>
+            </form>"; 
+ echo"</div>";
     
 echo"</table>";
+
 
 $tablero=$NuevoJuego->getJuegoConecta();
 
@@ -100,54 +98,15 @@ echo $NuevoJuego->CompruebaDiagonalDescendente();
 
 
 
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
-<!-- <style>
-body {
-  
-    min-height: 100vh;
-    background-color: #f0f0f0;
-    margin: 0;
-}
-
-table {
-    border-collapse: collapse;
-    background-color: #0047ab; 
-    padding: 10px;
-}
-
-td {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;       
-    background-color: white; 
-    margin: 5px;
-}
-
-form {
-   display: inline;
- 
-}
-
-
-button:hover {
-    background-color: #ccc;
-}
-button{
-    height: 40px;
-    width: 80px;
-}
-</style> -->
 <body>
 
 
