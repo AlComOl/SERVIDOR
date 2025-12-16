@@ -91,6 +91,10 @@ $tablero=$NuevoJuego->getJuegoConecta();
 
 echo $NuevoJuego->CompruebaHorizontal();
 
+echo $NuevoJuego->CompruebaVertical();
+
+echo $NuevoJuego->CompruebaDiagonalAscendente();
+
 
 
 

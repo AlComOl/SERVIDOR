@@ -94,11 +94,27 @@ public function CompruebaHorizontal() {
 
             if(isset($tablero[$f][$c])){
                 if($tablero[$f][$c]==1){
-
+                    $contador1++;
+                    $contador2=0;
+                }elseif($tablero[$f][$c]){
+                    $contador2++;
+                    $contador1=0;
                 }
 
+            }else{
+                  $contador1 = 0;
+                  $contador2 = 0;
             }
-            
+
+            if($contador1 >= 4){
+                $contador1=0;
+                return "El ganador es el Jugador 1";
+            }
+            if($contador1 >= 4){
+                $contador1=0;
+                return "El ganador es el Jugador 2";
+            }
+
         } 
         
     }
@@ -106,8 +122,46 @@ public function CompruebaHorizontal() {
   }
 
   public function CompruebaDiagonalAscendente(){
+    $tablero=$this->getJuegoConecta();
+   
+    $contador1 = 0;
+    $contador2 = 0;
 
-  }
+    while($c>0){
+         $f=0;
+         $c=5;
+
+
+        if(isset($tablero[$c][$f])){
+        if($tablero[$c][$f]==1){
+           $contador1++;
+            $c--;
+            $f++;
+              var_dump($contador1);
+        }
+  
+        if($tablero[$c][$f]==2){
+            $contador2++;
+            $c--;
+            $f++;
+              var_dump($contador2);
+        }
+    
+        if($contador1==4){
+            return "ha gando el jugador 1";
+        }
+
+         if($contador2==4){
+            return "ha gando el jugador 2";
+        }
+    }
+    }
+    }
+
+
+
+
+  
 
 
     public function CompruebaDiagonalDescendente(){
