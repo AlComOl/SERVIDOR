@@ -116,7 +116,7 @@ class Conecta {
                     if ($contador1 >= 4){
                         return "Ha ganado el jugador 1";
                     } 
-                    if ($contador2 >= 4){
+                    if ($contador2 >=4){
                          return "Ha ganado el jugador 2";
                     }
 

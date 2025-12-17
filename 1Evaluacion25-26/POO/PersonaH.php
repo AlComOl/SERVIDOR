@@ -157,21 +157,21 @@ class Empleado extends Persona{
 
     }
 
-    // public static function toHtml(Empleado $emp): string{
+    public static function toHtml(Persona $emp): string{
 
-    //     if ($emp instanceof Empleado) {
+        if ($emp instanceof Empleado) {
 
-    //                 return "<p>El nombre del empleado es . $emp->nombre  el apellido $emp->apellido el listado de telefonos</p>". $emp->listarTelefonos();
+                    return "<p>El nombre del empleado es . $emp->nombre  el apellido $emp->apellido el listado de telefonos</p>". $emp->listarTelefonos();
 
-    //             }
+                }
 
-    //     return "No es una instancia de Empleado"; 
-    //    }
+        return "No es una instancia de Empleado"; 
+       }
 }
 
-
 $david= new Empleado('David', 'Gimenez',2000,51);
-$alvaro= new Persona('Alvaro','Comenge',3000,50);
+
+$p= new Persona('Alvaro','Comenge',3000,50);
 
 echo"<br><br>";
 echo"Edad Empleado";
@@ -187,7 +187,12 @@ echo"<br><br>";
 
 // echo $david->toHtmlEmp($david);
 // echo Persona::toHtmlPers($david);
-echo Persona::toHtml($alvaro);
+echo "funcion de persona->";
+echo Persona::toHtml($david);
+echo"<br><br>";
+echo"funcion de empleado->";
+echo Empleado::toHtml($david);
+echo"<br><br>";
 
 
 echo"<br><br>";
