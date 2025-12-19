@@ -7,7 +7,7 @@ if(isset($_POST['eliminar'])){//borrar $de sesion
     session_destroy();
 }
 
-if(!isset($_SESSION['juego'])){//Si no existe la sesion la instancia dentro de la $sesion(juego)
+if(!isset($_SESSION['juego'])){
     $_SESSION['juego']=$NuevoJuego;
 }
 
